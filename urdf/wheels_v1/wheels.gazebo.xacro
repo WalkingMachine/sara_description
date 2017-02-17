@@ -2,7 +2,13 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
    <xacro:macro name="sara_wheels_gazebo_v1" params="name parent">
       <gazebo reference="${name}_link">
-         <gravity>false</gravity>
+      <mu1 value="1.0"/>
+      <mu2 value="1.0"/>
+      <kp value="1000000.0" />
+      <kd value="100.0" />
+      <fdir1 value="0 0 1"/>
+      <material>Gazebo/Orange</material>
+      <turnGravityOff>false</turnGravityOff>
       </gazebo>
    </xacro:macro>
 </robot>

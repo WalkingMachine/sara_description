@@ -2,14 +2,14 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
    <xacro:macro name="sara_base_gazebo_v1" params="name parent">
        <gazebo reference="{name}_link">
-         <gravity>false</gravity>
+         <turnGravityOff>false</turnGravityOff>
       </gazebo>
       <gazebo reference="spine_link">
-          <gravity>false</gravity>
+          <turnGravityOff>false</turnGravityOff>
       </gazebo>
       <!-- hokuyo -->
       <gazebo reference="lidar_link">
-         <gravity>false</gravity>
+         <turnGravityOff>false</turnGravityOff>
          <sensor type="ray" name="base_hokuyo_sensor">
             <pose>0 0 0 0 0 0</pose>
             <visualize>true</visualize>

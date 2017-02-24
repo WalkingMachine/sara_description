@@ -2,13 +2,13 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
    <xacro:macro name="sara_head_gazebo_v1" params="name parent">
       <gazebo reference="neck_dynamixel_link">
-         <gravity>false</gravity>
+         <turnGravityOff>false</turnGravityOff>
       </gazebo>
       <gazebo reference="head_link">
-         <gravity>false</gravity>
+         <turnGravityOff>false</turnGravityOff>
       </gazebo>
       <gazebo reference="camera_link">
-         <gravity>false</gravity>
+         <turnGravityOff>false</turnGravityOff>
          <sensor type="depth" name="camera">
             <visualize>true</visualize>
             <pose>0 0 0 0 0 0</pose>

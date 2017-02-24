@@ -33,5 +33,4 @@
         <axis xyz="0 0 1" />
    </joint>
  </xacro:macro>
->>>>>>> ec39a350ad45b017363f201bf2bc936c8fdd3bdb
 </robot>

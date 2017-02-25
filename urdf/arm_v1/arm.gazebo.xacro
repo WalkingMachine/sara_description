@@ -73,16 +73,6 @@
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
 
-    <transmission name="${name}_forarm-wrist_trans" type="SimpleTransmission">
-      <type>transmission_interface/SimpleTransmission</type>
-      <actuator name="${name}_forarm-wrist_motor">
-      	 <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-      <joint name="${name}_forarm_wrist_joint">
-      	 <hardwareInterface>VelocityJointInterface</hardwareInterface>
-      </joint>
-    </transmission>
-
     <gazebo reference="${name}_high_wrist_link">
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
@@ -114,16 +104,6 @@
     <gazebo reference="${name}_socket_link">
       <turnGravityOff>false</turnGravityOff>
     </gazebo>
-
-    <transmission name="${name}_end_effector_trans" type="SimpleTransmission">
-      <type>transmission_interface/SimpleTransmission</type>
-      <actuator name="${name}_end_effector_motor">
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-      <joint name="${name}_end_effector_joint">
-        <hardwareInterface>VelocityJointInterface</hardwareInterface>
-      </joint>
-    </transmission>
 
     <gazebo reference="grasp_link">
       <turnGravityOff>false</turnGravityOff>

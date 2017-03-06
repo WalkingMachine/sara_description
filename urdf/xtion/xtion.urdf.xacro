@@ -19,17 +19,17 @@
       <link name="${prefix}xtion_link">
         <inertial>
           <mass value="0.200" />
-          <origin xyz="0 0 0" rpy="0 0 0" />
+          <origin xyz="0 0 0" rpy="1.5708 0 1.5708" />
           <inertia ixx="5.8083e-4" ixy="0" ixz="0" iyy="3.0833e-5" iyz="0" izz="5.9083e-4" />
         </inertial>
         <visual>
-          <origin xyz="0 0 0" rpy="0 0 0" />
+          <origin xyz="0 0 0" rpy="1.5708 0 1.5708" />
           <geometry>
               <mesh filename="package://sara_description/meshes/xtion.STL" scale="0.001 0.001 0.001"/>
           </geometry>
         </visual>
         <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
+          <origin xyz="0 0 0" rpy="1.5708 0 1.5708" />
           <geometry>
             <box size="0.035 0.185 0.025"/>
           </geometry>

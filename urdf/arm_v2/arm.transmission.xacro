@@ -63,12 +63,12 @@
       </joint>
     </transmission>
 
-    <transmission name="${prefix}wrist_yaw_trans" type="SimpleTransmission">
+    <transmission name="${prefix}wrist_roll_trans" type="SimpleTransmission">
       <type>transmission_interface/SimpleTransmission</type>
-      <actuator name="${prefix}wrist_yaw_motor">
+      <actuator name="${prefix}wrist_roll_motor">
       	 <mechanicalReduction>1</mechanicalReduction>
       </actuator>
-      <joint name="${prefix}wrist_yaw_joint">
+      <joint name="${prefix}wrist_roll_joint">
       	 <hardwareInterface>VelocityJointInterface</hardwareInterface>
       </joint>
     </transmission>

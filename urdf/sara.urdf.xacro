@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="sara" >
+    <xacro:arg name="sim" default="true"/>
     <xacro:property name="sim" value="$(arg sim)"/>
-    <xacro:property name="end_effector" value="$(arg end_effector)"/>
 
     <!-- Inclure tous les autres urdf.xacros ici -->
     <xacro:include filename="$(find sara_description)/urdf/torso_v1/torso.urdf.xacro"/>
@@ -42,7 +42,7 @@
 
     <!-- Neck -->
     <xacro:sara_neck_v1 parent="torso" sim="${sim}">
-        <origin xyz="0.032295 0 0.2447" rpy="0 0 0"/>
+        <origin xyz="0.032295 0 0.2777" rpy="0 0 0"/>
     </xacro:sara_neck_v1>
 
     <!-- Head -->
@@ -61,19 +61,17 @@
     </xacro:sara_arm_v2>
 
     <!-- End Effector -->
-    <xacro:if value="${end_effector == 85}">
-        <!-- Gripper 85 (round base) -->
-        <xacro:include filename="$(find robotiq_85_description)/urdf/robotiq_85_gripper.urdf.xacro"/>
-        <xacro:robotiq_85_gripper prefix="right_" parent="right_socket_link">
-            <origin xyz="0 0 -0.02989" rpy="0 1.5708 0"/>
-        </xacro:robotiq_85_gripper>
-    </xacro:if>
-    <xacro:if value="${end_effector == 'C2'}">
-        <!-- Gripper C2 (old model)-->
-        <xacro:include filename="$(find robotiq_c2_model_visualization)/urdf/robotiq_c2_model_macro.xacro"/>
-        <xacro:robotiq_c2_model prefix="right_" parent="right_socket_link">
-            <origin xyz="0 0 -0.02989" rpy="0 1.5708 0"/>
-        </xacro:robotiq_c2_model>
-    </xacro:if>
+
+    <!-- Gripper 85 (round base)
+    <xacro:include filename="$(find robotiq_85_description)/urdf/robotiq_85_gripper.urdf.xacro"/>
+    <xacro:robotiq_85_gripper prefix="right_" parent="right_socket_link">
+        <origin xyz="0 0 -0.02989" rpy="0 1.5708 0"/>
+    </xacro:robotiq_85_gripper>-->
+
+    <!-- Gripper C2 (old model)-->
+    <xacro:include filename="$(find robotiq_c2_model_visualization)/urdf/robotiq_c2_model_macro.xacro"/>
+    <xacro:robotiq_c2_model prefix="right_" parent="right_socket_link">
+        <origin xyz="0 0 -0.02989" rpy="0 1.5708 0"/>
+    </xacro:robotiq_c2_model>
 
 </robot>

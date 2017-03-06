@@ -4,11 +4,8 @@
     <!-- sim arg -->
     <arg name="sim" default="true" />
 
-    <!-- end_effector arg (C2 or 85) -->
-    <arg name="end_effector" default="C2" />
-
     <!-- load joint controller configurations from YAML file to parameter server -->
-    <param name="robot_description" command="xacro --inorder '$(find sara_description)/urdf/sara.urdf.xacro' sim:=$(arg sim) end_effector:=$(arg end_effector)"/>
+    <param name="robot_description" command="xacro --inorder '$(find sara_description)/urdf/sara.urdf.xacro' sim:=$(arg sim)"/>
 
     <!-- publish all the frames to TF -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">

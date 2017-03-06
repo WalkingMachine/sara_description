@@ -28,12 +28,12 @@
       <selfCollide>true</selfCollide>
     </gazebo>
 
-    <gazebo reference="${prefix}upper_wrist_link">
+    <gazebo reference="${prefix}wrist_upper_link">
       <turnGravityOff>false</turnGravityOff>
       <selfCollide>true</selfCollide>
     </gazebo>
 
-    <gazebo reference="${prefix}lower_wrist_link">
+    <gazebo reference="${prefix}wrist_lower_link">
       <turnGravityOff>false</turnGravityOff>
       <selfCollide>true</selfCollide>
     </gazebo>

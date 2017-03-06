@@ -1,29 +1,31 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" >
 
-   <xacro:include filename="$(find sara_description)/urdf/arm_v1/arm.gazebo.xacro" />
+   <xacro:macro name="sara_arm_v2" params="prefix parent *origin sim">
+     <xacro:if value="${sim}">
+       <xacro:include filename="$(find sara_description)/urdf/arm_v2/arm.gazebo.xacro" />
+       <xacro:sara_arm_gazebo_v2 prefix="${prefix}"/>
+     </xacro:if>
+     <xacro:include filename="$(find sara_description)/urdf/arm_v2/arm.transmission.xacro" />
+     <xacro:sara_arm_transmission_v2 prefix="${prefix}"/>
 
-   <xacro:macro name="sara_arm_v1" params="name parent">
-
-     <xacro:sara_arm_gazebo_v1 name="${name}" parent="${parent}"/>
-
-     <joint name="${parent}_${name}_joint" type="revolute">
+     <joint name="${prefix}shoulder_roll_joint" type="revolute">
        <parent link="${parent}_link"/>
-       <child link="${name}_clavicular_link"/>
+       <child link="${prefix}clavicular_link"/>
        <limit effort="1000.0" lower="-1.6" upper="1.4" velocity="0.5"/>
-       <origin xyz="0 -0.145 0.189" rpy="0 -1.57 0"/>
+       <xacro:insert_block name="origin"/>
        <axis xyz="0 0 1" />
      </joint>
 
-     <link name="${name}_clavicular_link">
+     <link name="${prefix}clavicular_link">
        <visual>
          <geometry>
            <mesh filename="package://sara_description/meshes/epaule.STL" scale="0.001 0.001 0.001"/>
-           </geometry>
-           <origin xyz="0 0 0" rpy="0 3.1416 0"/>
-           <material name="black">
-             <color rgba="0.12 0.12 0.12 1"/>
-           </material>
+         </geometry>
+         <origin xyz="0 0 0" rpy="0 3.1416 0"/>
+         <material name="black">
+           <color rgba="0.12 0.12 0.12 1"/>
+         </material>
        </visual>
        <collision>
          <geometry>
@@ -38,15 +40,15 @@
        </inertial>
      </link>
 
-     <joint name="${name}_shoulder_joint" type="revolute">
-       <parent link="${name}_clavicular_link"/>
-       <child link="${name}_fix_upper_link"/>
+     <joint name="${prefix}shoulder_pitch_joint" type="revolute">
+       <parent link="${prefix}clavicular_link"/>
+       <child link="${prefix}upper_arm_upper_link"/>
        <limit effort="1000.0" lower="-4.7124" upper="1.5708" velocity="0.5"/>
        <origin xyz="0 -0.085 0" rpy="-1.57 0 0" />
        <axis xyz="0 0 1" />
      </joint>
 
-     <link name="${name}_fix_upper_link">
+     <link name="${prefix}upper_arm_upper_link">
        <visual>
          <geometry>
            <mesh filename="package://sara_description/meshes/epaule.STL" scale="0.001 0.001 0.001"/>
@@ -69,15 +71,15 @@
          </inertial>
      </link>
 
-     <joint name="${name}_rot_elbow_joint" type="revolute">
-       <parent link="${name}_fix_upper_link"/>
-       <child link="${name}_rot_upper_link"/>
+     <joint name="${prefix}shoulder_yaw_joint" type="revolute">
+       <parent link="${prefix}upper_arm_upper_link"/>
+       <child link="${prefix}upper_arm_lower_link"/>
        <limit effort="1000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
        <origin xyz="-0.085 0 0" rpy="1.5708 0 1.5708" />
        <axis xyz="0 0 1" />
      </joint>
 
-     <link name="${name}_rot_upper_link">
+     <link name="${prefix}upper_arm_lower_link">
        <visual>
          <geometry>
            <mesh filename="package://sara_description/meshes/bras_haut.STL" scale="0.001 0.001 0.001"/>
@@ -100,15 +102,15 @@
        </inertial>
      </link>
 
-      <joint name="${name}_elbow_joint" type="revolute">
-        <parent link="${name}_rot_upper_link"/>
-        <child link="${name}_fix_lower_link"/>
+      <joint name="${prefix}elbow_pitch_joint" type="revolute">
+        <parent link="${prefix}upper_arm_lower_link"/>
+        <child link="${prefix}forearm_upper_link"/>
         <limit effort="1000.0" lower="-2.20" upper="1.90" velocity="0.5"/>
         <origin xyz="0 0 -0.31" rpy="-1.5708 0 0" />
         <axis xyz="0 0 1" />
       </joint>
 
-      <link name="${name}_fix_lower_link">
+      <link name="${prefix}forearm_upper_link">
         <visual>
           <geometry>
             <mesh filename="package://sara_description/meshes/coude.STL" scale="0.001 0.001 0.001"/>
@@ -131,15 +133,15 @@
         </inertial>
       </link>
 
-     <joint name="${name}_rot_wrist_joint" type="revolute">
-       <parent link="${name}_fix_lower_link"/>
-       <child link="${name}_rot_lower_link"/>
+     <joint name="${prefix}elbow_yaw_joint" type="revolute">
+       <parent link="${prefix}forearm_upper_link"/>
+       <child link="${prefix}forearm_lower_link"/>
        <limit effort="1000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
        <origin xyz="0 0.0945 0" rpy="1.5708 -1.5708 0" />
        <axis xyz="0 0 1" />
      </joint>
 
-     <link name="${name}_rot_lower_link">
+     <link name="${prefix}forearm_lower_link">
        <visual>
          <geometry>
            <mesh filename="package://sara_description/meshes/avant-bras.STL" scale="0.001 0.001 0.001"/>
@@ -162,15 +164,15 @@
        </inertial>
      </link>
 
-     <joint name="${name}_forarm_wrist_joint" type="fixed">
-       <parent link="${name}_rot_lower_link"/>
-       <child link="${name}_high_wrist_link"/>
+     <joint name="${prefix}wrist_joint" type="fixed">
+       <parent link="${prefix}forearm_lower_link"/>
+       <child link="${prefix}upper_wrist_link"/>
        <limit effort="1000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
        <origin xyz="0 0 -0.11184" rpy="1.5708 -1.5708 0" />
        <axis xyz="0 1 0" />
      </joint>
 
-     <link name="${name}_high_wrist_link">
+     <link name="${prefix}upper_wrist_link">
        <visual>
          <geometry>
            <mesh filename="package://sara_description/meshes/poignet_haut.STL" scale="0.001 0.001 0.001"/>
@@ -193,15 +195,15 @@
        </inertial>
      </link>
 
-     <joint name="${name}_high_low_wrist_joint" type="revolute">
-       <parent link="${name}_high_wrist_link"/>
-       <child link="${name}_low_wrist_link"/>
+     <joint name="${prefix}wrist_pitch_joint" type="revolute">
+       <parent link="${prefix}upper_wrist_link"/>
+       <child link="${prefix}lower_wrist_link"/>
        <limit effort="1000.0" lower="-1.5708" upper="1.5708" velocity="0.5"/>
        <origin xyz="0 0 0" rpy="1.5708 -1.5708 0" />
        <axis xyz="0 0 1" />
      </joint>
 
-     <link name="${name}_low_wrist_link">
+     <link name="${prefix}lower_wrist_link">
        <visual>
          <geometry>
            <mesh filename="package://sara_description/meshes/poignet_bas.STL" scale="0.001 0.001 0.001"/>
@@ -224,15 +226,15 @@
        </inertial>
      </link>
 
-     <joint name="${name}_low_wrist_grasp_socket_joint" type="revolute">
-       <parent link="${name}_low_wrist_link"/>
-       <child link="${name}_socket_link"/>
+     <joint name="${prefix}wrist_yaw_joint" type="revolute">
+       <parent link="${prefix}lower_wrist_link"/>
+       <child link="${prefix}socket_link"/>
        <limit effort="1000.0" lower="-1.49" upper="1.49" velocity="0.5"/>
        <origin xyz="0 0.084375 0" rpy="1.5708 0 0" />
        <axis xyz="1 0 0" />
      </joint>
 
-     <link name="${name}_socket_link">
+     <link name="${prefix}socket_link">
        <visual>
          <geometry>
            <mesh filename="package://sara_description/meshes/attache-pince.STL" scale="0.001 0.001 0.001"/>

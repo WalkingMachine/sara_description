@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" >
+
+    <xacro:macro name="four_mecanum_wheels" params="parent x_center y_center sim" >
+
+        <!-- wheels -->
+        <xacro:macro name="mecanum_wheel" params="position x_reflect y_reflect x_axis_rotation">
+            <xacro:if value="${sim}">
+                <xacro:include filename="$(find sara_description)/urdf/mecanum_wheel/mecanum_wheel.gazebo.xacro" />
+                <xacro:mecanum_wheel_gazebo position="${position}"/>
+            </xacro:if>
+            <xacro:include filename="$(find sara_description)/urdf/mecanum_wheel/mecanum_wheel.transmission.xacro" />
+            <!--<xacro:macanum_wheel_transmission position="${position}"/>-->
+
+            <link name="${position}_mecanum_wheel_link"/>
+
+            <joint name="${position}_mecanum_wheel_joint" type="continuous">
+                <parent link="${parent}_link"/>
+                <child link="${position}_mecanum_wheel_link"/>
+                <axis xyz="0 0 1"/>
+                <origin xyz="${y_reflect * y_center} ${x_reflect * x_center} -0.06" rpy=" ${x_axis_rotation * 1.57079632679} 0 0"/>
+            </joint>
+        </xacro:macro>
+
+        <xacro:mecanum_wheel position="front_left" y_reflect="1" x_reflect="1" x_axis_rotation="-1"/>
+        <xacro:mecanum_wheel position="front_right" y_reflect="1" x_reflect="-1" x_axis_rotation="1"/>
+        <xacro:mecanum_wheel position="rear_left" y_reflect="-1" x_reflect="1" x_axis_rotation="-1"/>
+        <xacro:mecanum_wheel position="rear_right" y_reflect="-1" x_reflect="-1" x_axis_rotation="1"/>
+    </xacro:macro>
+</robot>

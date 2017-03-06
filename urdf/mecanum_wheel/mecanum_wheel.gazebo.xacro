@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-   <xacro:macro name="sara_wheels_gazebo_v1" params="name parent">
-      <gazebo reference="${name}_link">
+   <xacro:macro name="mecanum_wheel_gazebo" params="position">
+      <gazebo reference="${position}_mecanum_wheel_link">
         <mu1 value="0"/>
         <mu2 value="0"/>
         <kp value="0" />

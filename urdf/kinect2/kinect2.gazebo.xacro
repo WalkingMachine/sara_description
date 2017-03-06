@@ -3,6 +3,7 @@
    <xacro:macro name="kinect2_gazebo" params="name parent">
       <gazebo reference="${name}_link">
          <turnGravityOff>false</turnGravityOff>
+         <selfCollide>true</selfCollide>
       </gazebo>
    </xacro:macro>
 </robot>

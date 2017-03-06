@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="sara_arm_gazebo_v2" params="prefix">
+
+    <gazebo reference="${prefix}clavicular_link">
+        <turnGravityOff>false</turnGravityOff>
+      <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="${prefix}upper_arm_upper_link">
+      <turnGravityOff>false</turnGravityOff>
+      <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="${prefix}upper_arm_lower_link">
+      <turnGravityOff>false</turnGravityOff>
+      <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="${prefix}forearm_upper_link">
+      <turnGravityOff>false</turnGravityOff>
+      <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="${prefix}forearm_lower_link">
+      <turnGravityOff>false</turnGravityOff>
+      <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="${prefix}upper_wrist_link">
+      <turnGravityOff>false</turnGravityOff>
+      <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="${prefix}lower_wrist_link">
+      <turnGravityOff>false</turnGravityOff>
+      <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="${prefix}socket_link">
+      <turnGravityOff>false</turnGravityOff>
+      <selfCollide>true</selfCollide>
+    </gazebo>
+
+  </xacro:macro>
+</robot>

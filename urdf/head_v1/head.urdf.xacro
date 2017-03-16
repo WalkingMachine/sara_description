@@ -37,7 +37,9 @@
          <inertial>
             <mass value="5" />
             <origin xyz="0 0 0" rpy="1.5708 0 1.5708" />
-            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+            <inertia ixx = "0.02722768" ixy = "0.00015673" ixz = "0.0000148"
+                     iyy = "0.02716685" iyz = "0.00524002"
+                     izz = "0.04109802" />
          </inertial>
       </link>
 

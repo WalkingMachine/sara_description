@@ -2,7 +2,9 @@
 
 <launch>
     <!-- sim arg -->
-    <arg name="sim" default="true" />
+    <arg name="sim" default="false" />
+    <arg name="test" default="false" />
+    <arg name="gui" default="true" />
 
     <!-- load joint controller configurations from YAML file to parameter server -->
     <param name="robot_description" command="xacro --inorder '$(find sara_description)/urdf/sara.urdf.xacro' sim:=$(arg sim)"/>
@@ -11,4 +13,9 @@
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
       <!--<remap from="/joint_states" to="/sara_joint_state_controller" />-->
     </node>
+
+    <group  if="$(arg test)">
+      <param name="use_gui" value="$(arg gui)"/>
+      <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    </group>
 </launch>

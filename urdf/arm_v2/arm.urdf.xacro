@@ -35,10 +35,10 @@
        </collision>
        <inertial>
          <mass value="1" />
-         <origin xyz="0 0 0" rpy="0 3.1416 0" />
-         <inertia ixx="0.0012247" ixy="0.0" ixz="0.0"
-                  iyy="0.00049634" iyz="0.0002987"
-                  izz="0.00131941" />
+         <origin xyz="0 -0.05029668 0.01842530" rpy="0 3.1416 0" />
+         <inertia ixx = "0.00040675" ixy="0.0" ixz="0.0"
+                  iyy = "0.00039956" iyz = "0.00003451"
+                  izz = "0.00059825" />
        </inertial>
      </link>
 
@@ -152,7 +152,7 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/avant-bras.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="-0.0338 0.0338 0" rpy="-1.5708 0 -1.5708" />
+         <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708" />
            <material name="black">
              <color rgba="0.12 0.12 0.12 1"/>
            </material>
@@ -161,14 +161,14 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/avant-bras.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-           <origin xyz="-0.0338 0.0338 0" rpy="-1.5708 0 -1.5708" />
+           <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708" />
        </collision>
        <inertial>
          <mass value="1" />
-         <origin xyz="-0.0338 0.0338 0" rpy="-1.5708 0 -1.5708" />
-         <inertia ixx="0.00037838" ixy="0.00014913" ixz="0.00014658"
-                  iyy="0.00040127" iyz="0.00015139"
-                  izz="0.00041573" />
+         <origin xyz="-0.00000184 0.03625492 0.0" rpy="-1.5708 0 -1.5708" />
+         <inertia ixx = "0.00007571" ixy = "0.0" ixz = "0.0"
+                  iyy = "0.00010905" iyz = "0.0"
+                  izz = "0.00011768" />
        </inertial>
      </link>
 
@@ -176,7 +176,7 @@
        <parent link="${prefix}forearm_lower_link"/>
        <child link="${prefix}wrist_upper_link"/>
        <limit effort="1000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
-       <origin xyz="0 0 -0.11184" rpy="1.5708 -1.5708 0" />
+       <origin xyz="0 0 -0.05124" rpy="1.5708 -1.5708 0" />
        <axis xyz="0 1 0" />
      </joint>
 
@@ -185,23 +185,23 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/poignet_haut.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0.0706 0.0283 -0.030" rpy="1.5708 -1.5708 0"/>
-         <material name="blue">
-           <color rgba="0 0 1 .06"/>
+         <origin xyz="0 0 0" rpy="1.5708 -1.5708 0"/>
+         <material name="black">
+           <color rgba="0.12 0.12 0.12 1"/>
          </material>
        </visual>
        <collision>
          <geometry>
            <mesh filename="package://sara_description/meshes/poignet_haut.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0.0706 0.0283 -0.030" rpy="1.5708 -1.5708 0"/>
+         <origin xyz="0 0 0" rpy="1.5708 -1.5708 0"/>
        </collision>
        <inertial>
          <mass value="1" />
-         <origin xyz="0.0706 0.0283 -0.030" rpy="1.5708 -1.5708 0" />
-         <inertia ixx = "0.00015783" ixy = "0.00005533" ixz = "0.00005899"
-                  iyy = "0.00016618" iyz = "0.00005219"
-                  izz = "0.00016459" />
+         <origin xyz="0.00000283 0.03890077 0.00017201" rpy="1.5708 -1.5708 0"/>
+         <inertia ixx = "0.00013274" ixy = "0.0" ixz = "0.0"
+                  iyy = "0.00007056" iyz = "0.00000150"
+                  izz = "0.00011649" />
        </inertial>
      </link>
 
@@ -209,7 +209,7 @@
        <parent link="${prefix}wrist_upper_link"/>
        <child link="${prefix}wrist_lower_link"/>
        <limit effort="1000.0" lower="-1.5708" upper="1.5708" velocity="0.5"/>
-       <origin xyz="0 0 0" rpy="1.5708 -1.5708 0" />
+       <origin xyz="-0.0606 0 0" rpy="1.5708 -1.5708 0" />
        <axis xyz="0 0 1" />
      </joint>
 
@@ -218,7 +218,7 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/poignet_bas.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="-0.02575  -0.01375 0.0305448" rpy=" 0 1.5708 0"/>
+         <origin xyz="0 0 0" rpy=" 0 1.5708 0"/>
          <material name="black">
            <color rgba="0.12 0.12 0.12 1"/>
          </material>
@@ -227,14 +227,14 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/poignet_bas.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="-0.02575  -0.01375 0.0305448" rpy=" 0 1.5708 0"/>
+         <origin xyz="0 0 0" rpy=" 0 1.5708 0"/>
        </collision>
        <inertial>
          <mass value="1" />
-         <origin xyz="-0.02575  -0.01375 0.0305448" rpy="0 1.5708 0" />
-         <inertia ixx="0.00039755" ixy="0.00015393" ixz="0.0000828"
-                  iyy="0.00022585" iyz="0.00013002"
-                  izz="0.00044072" />
+         <origin xyz="0.0 0.06377326 -0.000001541" rpy=" 0 1.5708 0"/>
+         <inertia ixx = "0.00009654" ixy = "0.0" ixz = "0.0"
+                  iyy = "0.00004298" iyz = "0.00000061"
+                  izz = "0.00009099" />
        </inertial>
      </link>
 
@@ -249,25 +249,25 @@
      <link name="${prefix}socket_link">
        <visual>
          <geometry>
-           <mesh filename="package://sara_description/meshes/attache-pince.STL" scale="0.001 0.001 0.001"/>
+           <mesh filename="package://sara_description/meshes/attache_pince.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0.028925 -0.025 -0.0362070" rpy="0 0 1.5708"/>
+         <origin xyz="0 0 0" rpy="0 0 1.5708"/>
          <material name="black">
            <color rgba="0.12 0.12 0.12 1"/>
          </material>
        </visual>
        <collision>
          <geometry>
-           <mesh filename="package://sara_description/meshes/attache-pince.STL" scale="0.001 0.001 0.001"/>
+           <mesh filename="package://sara_description/meshes/attache_pince.STL" scale="0.001 0.001 0.001"/>
          </geometry>
          <origin xyz="0.028925 -0.025 -0.0362070" rpy="0 0 1.5708"/>
        </collision>
        <inertial>
          <mass value="1" />
-         <origin xyz="0.028925 -0.025 -0.0362070" rpy="0 0 1.5708" />
-         <inertia ixx="0.00006064" ixy="0.00002022" ixz="0.00001417"
-                  iyy="0.00003787" iyz="0.0000164"
-                  izz="0.00006587" />
+         <origin xyz="0.0157046 0.0 0.0" rpy="0 0 1.5708"/>
+         <inertia ixx = "0.00000933" ixy = "0.0" ixz = "0.0"
+                  iyy = "0.00000332" iyz = "0.0"
+                  izz = "0.00000955" />
        </inertial>
      </link>
 

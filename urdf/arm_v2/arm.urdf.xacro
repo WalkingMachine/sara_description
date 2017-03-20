@@ -152,7 +152,7 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/avant-bras.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="-0.0338 0.0338 0" rpy="-1.5708 0 -1.5708" />
+         <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708" />
            <material name="black">
              <color rgba="0.12 0.12 0.12 1"/>
            </material>
@@ -161,7 +161,7 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/avant-bras.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-           <origin xyz="-0.0338 0.0338 0" rpy="-1.5708 0 -1.5708" />
+           <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708" />
        </collision>
        <inertial>
          <mass value="1" />
@@ -176,7 +176,7 @@
        <parent link="${prefix}forearm_lower_link"/>
        <child link="${prefix}wrist_upper_link"/>
        <limit effort="1000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
-       <origin xyz="0 0 -0.11184" rpy="1.5708 -1.5708 0" />
+       <origin xyz="0 0 -0.05124" rpy="1.5708 -1.5708 0" />
        <axis xyz="0 1 0" />
      </joint>
 
@@ -185,16 +185,16 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/poignet_haut.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0.0706 0.0283 -0.030" rpy="1.5708 -1.5708 0"/>
-         <material name="blue">
-           <color rgba="0 0 1 .06"/>
+         <origin xyz="0 0 0" rpy="1.5708 -1.5708 0"/>
+         <material name="black">
+           <color rgba="0.12 0.12 0.12 1"/>
          </material>
        </visual>
        <collision>
          <geometry>
            <mesh filename="package://sara_description/meshes/poignet_haut.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0.0706 0.0283 -0.030" rpy="1.5708 -1.5708 0"/>
+         <origin xyz="0 0 0" rpy="1.5708 -1.5708 0"/>
        </collision>
        <inertial>
          <mass value="1" />
@@ -209,7 +209,7 @@
        <parent link="${prefix}wrist_upper_link"/>
        <child link="${prefix}wrist_lower_link"/>
        <limit effort="1000.0" lower="-1.5708" upper="1.5708" velocity="0.5"/>
-       <origin xyz="0 0 0" rpy="1.5708 -1.5708 0" />
+       <origin xyz="-0.0606 0 0" rpy="1.5708 -1.5708 0" />
        <axis xyz="0 0 1" />
      </joint>
 
@@ -218,7 +218,7 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/poignet_bas.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="-0.02575  -0.01375 0.0305448" rpy=" 0 1.5708 0"/>
+         <origin xyz="0 0 0" rpy=" 0 1.5708 0"/>
          <material name="black">
            <color rgba="0.12 0.12 0.12 1"/>
          </material>
@@ -227,7 +227,7 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/poignet_bas.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="-0.02575  -0.01375 0.0305448" rpy=" 0 1.5708 0"/>
+         <origin xyz="0 0 0" rpy=" 0 1.5708 0"/>
        </collision>
        <inertial>
          <mass value="1" />
@@ -249,16 +249,16 @@
      <link name="${prefix}socket_link">
        <visual>
          <geometry>
-           <mesh filename="package://sara_description/meshes/attache-pince.STL" scale="0.001 0.001 0.001"/>
+           <mesh filename="package://sara_description/meshes/attache_pince.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0.028925 -0.025 -0.0362070" rpy="0 0 1.5708"/>
+         <origin xyz="0 0 0" rpy="0 0 1.5708"/>
          <material name="black">
            <color rgba="0.12 0.12 0.12 1"/>
          </material>
        </visual>
        <collision>
          <geometry>
-           <mesh filename="package://sara_description/meshes/attache-pince.STL" scale="0.001 0.001 0.001"/>
+           <mesh filename="package://sara_description/meshes/attache_pince.STL" scale="0.001 0.001 0.001"/>
          </geometry>
          <origin xyz="0.028925 -0.025 -0.0362070" rpy="0 0 1.5708"/>
        </collision>

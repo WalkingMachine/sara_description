@@ -31,13 +31,13 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/epaule1.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-           <origin xyz="0 0 0" rpy="0 3.1416 0"/>
+           <origin xyz="0 0 0" rpy="0 0 0"/>
        </collision>
        <inertial>
-         <mass value="1" />
-         <origin xyz="0 -0.05029668 0.01842530" rpy="0 3.1416 0" />
-         <inertia ixx = "0.00040675" ixy="0.0" ixz="0.0"
-                  iyy = "0.00039956" iyz = "0.00003451"
+         <mass value="0.28506911" />
+         <origin xyz="0.0 -0.03225261 -0.01842117" rpy="0 0 0" />
+         <inertia ixx = "0.00040678" ixy="0.0" ixz = "-0.00000004"
+                  iyy = "0.00039958" iyz = "-0.00003453"
                   izz = "0.00059825" />
        </inertial>
      </link>
@@ -67,9 +67,9 @@
            <origin xyz="0 0 0" rpy="0 0 0"/>
          </collision>
          <inertial>
-           <mass value="1" />
-           <origin xyz="0 0 0" rpy="3.1416 0 1.5708"/>
-           <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+           <mass value="0.28506911" />
+           <origin xyz="-0.03225261 0 -0.01842117" rpy="0 0 0"/>
+           <inertia ixx = "0.00039958" ixy="0" ixz = "-0.00003453" iyy = "0.00040678" iyz = "0.00000004" izz = "0.00059825" />
          </inertial>
      </link>
 
@@ -95,14 +95,14 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/bras_haut.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0 0 0" rpy="1.5708 3.1416 3.1416"/>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
        </collision>
        <inertial>
-         <mass value="1" />
-         <origin xyz="0 0 0" rpy="1.5708 3.1416 3.1416"/>
-         <inertia ixx = "0.02042044" ixy="-0.00028692" ixz="-0.00000813"
-                  iyy="0.00056723" iyz="0.00027077"
-                  izz="0.02071076" />
+         <mass value="0.85240803" />
+         <origin xyz="-0.00168302 0.00155140 -0.13913505" rpy="0 0 0"/>
+         <inertia ixx = "0.00538199" ixy = "-0.00000635" ixz = "0.00012863"
+                  iyy = "0.00562525" iyz = "-0.00012986"
+                  izz = "0.00050159" />
        </inertial>
      </link>
 
@@ -128,14 +128,14 @@
           <geometry>
             <mesh filename="package://sara_description/meshes/coude.STL" scale="0.001 0.001 0.001"/>
           </geometry>
-          <origin xyz="0 0 -0.0005" rpy="3.1416 0 0"/>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
         </collision>
         <inertial>
-          <mass value="1" />
-          <origin xyz="0 0 -0.0005" rpy="3.1416 0 0"/>
-          <inertia ixx="0.00124099" ixy="0.0" ixz="0.0"
-                   iyy="0.00037378" iyz="0.00026280"
-                   izz="0.00135553" />
+          <mass value="0.28300045" />
+          <origin xyz="0.00000207 0.03922132 -0.01628605" rpy="0 0 0"/>
+          <inertia ixx = "0.00036109" ixy = "0.0" ixz = "-0.00000002"
+                   iyy = "0.00029872" iyz = "0.00001701"
+                   izz = "0.00055069" />
         </inertial>
       </link>
 
@@ -161,14 +161,14 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/avant_bras.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-           <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708" />
+           <origin xyz="0 0 0" rpy="0 0 0"/>
        </collision>
        <inertial>
-         <mass value="1" />
-         <origin xyz="-0.00000184 0.03625492 0.0" rpy="-1.5708 0 -1.5708" />
-         <inertia ixx = "0.00007571" ixy = "0.0" ixz = "0.0"
-                  iyy = "0.00010905" iyz = "0.0"
-                  izz = "0.00011768" />
+         <mass value="0.1177" />
+         <origin xyz="0.0 -0.00000184 -0.03625492" rpy="0 0 0" />
+         <inertia ixx = "0.54274952" ixy = "0.0" ixz = "0.0"
+                  iyy = "1.03078569" iyz = "0.0"
+                  izz = "0.00010905" />
        </inertial>
      </link>
 
@@ -194,14 +194,14 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/poignet_haut.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0 0 0" rpy="1.5708 -1.5708 0"/>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
        </collision>
        <inertial>
-         <mass value="1" />
-         <origin xyz="0.00000283 0.03890077 0.00017201" rpy="1.5708 -1.5708 0"/>
-         <inertia ixx = "0.00013274" ixy = "0.0" ixz = "0.0"
-                  iyy = "0.00007056" iyz = "0.00000150"
-                  izz = "0.00011649" />
+         <mass value="0.1956991" />
+         <origin xyz="-0.03893593 0.00017228 -0.00000284" rpy="0 0 0"/>
+         <inertia ixx = "0.00007035" ixy = "-0.00000150" ixz = "0.0"
+                  iyy = "0.00011510" iyz = "0.0"
+                  izz = "0.00013235" />
        </inertial>
      </link>
 
@@ -227,14 +227,14 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/poignet_bas.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0 0 0" rpy=" 0 1.5708 0"/>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
        </collision>
        <inertial>
-         <mass value="1" />
-         <origin xyz="0.0 0.06377326 -0.000001541" rpy=" 0 1.5708 0"/>
-         <inertia ixx = "0.00009654" ixy = "0.0" ixz = "0.0"
-                  iyy = "0.00004298" iyz = "0.00000061"
-                  izz = "0.00009099" />
+         <mass value="0.18747684" />
+         <origin xyz="0.00001243 0.05721169 0.0" rpy=" 0 0 0"/>
+         <inertia ixx = "0.00015391" ixy = "-0.00000060" ixz = "0.0"
+                  iyy = "0.00006260" iyz = "0.0"
+                  izz = "0.00015218" />
        </inertial>
      </link>
 
@@ -260,14 +260,14 @@
          <geometry>
            <mesh filename="package://sara_description/meshes/attache_pince.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0.028925 -0.025 -0.0362070" rpy="0 0 1.5708"/>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
        </collision>
        <inertial>
-         <mass value="1" />
-         <origin xyz="0.0157046 0.0 0.0" rpy="0 0 1.5708"/>
-         <inertia ixx = "0.00000933" ixy = "0.0" ixz = "0.0"
-                  iyy = "0.00000332" iyz = "0.0"
-                  izz = "0.00000955" />
+         <mass value="0.02796" />
+         <origin xyz="0.0 0.0 -0.01570460" rpy="0 0 0"/>
+         <inertia ixx = "0.00000889" ixy = "0.0" ixz = "0.0"
+                  iyy= "0.00002569" iyz = "0.0"
+                  izz = "0.00002493" />
        </inertial>
      </link>
 

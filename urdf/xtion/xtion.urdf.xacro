@@ -28,12 +28,6 @@
               <mesh filename="package://sara_description/meshes/xtion.STL" scale="0.001 0.001 0.001"/>
           </geometry>
         </visual>
-        <collision>
-          <origin xyz="0 0 0" rpy="1.5708 0 1.5708" />
-          <geometry>
-            <box size="0.035 0.185 0.025"/>
-          </geometry>
-        </collision>
       </link>
 
     </xacro:macro>

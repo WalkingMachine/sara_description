@@ -12,7 +12,8 @@
      <joint name="${prefix}shoulder_roll_joint" type="revolute">
        <parent link="${parent}_link"/>
        <child link="${prefix}clavicular_link"/>
-       <limit effort="1000.0" lower="-1.6" upper="1.4" velocity="0.5"/>
+       <dynamics damping="0.1"/>
+       <limit effort="10000.0" lower="-1.6" upper="1.4" velocity="0.5"/>
        <xacro:insert_block name="origin"/>
        <axis xyz="0 0 1" />
      </joint>
@@ -45,7 +46,8 @@
      <joint name="${prefix}shoulder_pitch_joint" type="revolute">
        <parent link="${prefix}clavicular_link"/>
        <child link="${prefix}upper_arm_upper_link"/>
-       <limit effort="1000.0" lower="-4.7124" upper="1.5708" velocity="0.5"/>
+       <dynamics damping="0.1"/>
+       <limit effort="10000.0" lower="-4.7124" upper="1.5708" velocity="0.5"/>
        <origin xyz="0 -0.085 0" rpy="-1.57 0 0" />
        <axis xyz="0 0 1" />
      </joint>
@@ -76,7 +78,8 @@
      <joint name="${prefix}shoulder_yaw_joint" type="revolute">
        <parent link="${prefix}upper_arm_upper_link"/>
        <child link="${prefix}upper_arm_lower_link"/>
-       <limit effort="1000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
+       <dynamics damping="0.1"/>
+       <limit effort="10000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
        <origin xyz="-0.085 0 0" rpy="1.5708 0 1.5708" />
        <axis xyz="0 0 1" />
      </joint>
@@ -109,7 +112,8 @@
       <joint name="${prefix}elbow_pitch_joint" type="revolute">
         <parent link="${prefix}upper_arm_lower_link"/>
         <child link="${prefix}forearm_upper_link"/>
-        <limit effort="1000.0" lower="-2.20" upper="1.90" velocity="0.5"/>
+        <dynamics damping="0.1"/>
+        <limit effort="10000.0" lower="-2.20" upper="1.90" velocity="0.5"/>
         <origin xyz="0 0 -0.31" rpy="-1.5708 0 0" />
         <axis xyz="0 0 1" />
       </joint>
@@ -142,7 +146,8 @@
      <joint name="${prefix}elbow_yaw_joint" type="revolute">
        <parent link="${prefix}forearm_upper_link"/>
        <child link="${prefix}forearm_lower_link"/>
-       <limit effort="1000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
+       <dynamics damping="0.1"/>
+       <limit effort="10000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
        <origin xyz="0 0.0945 0" rpy="1.5708 -1.5708 0" />
        <axis xyz="0 0 1" />
      </joint>
@@ -175,7 +180,7 @@
      <joint name="${prefix}wrist_joint" type="fixed">
        <parent link="${prefix}forearm_lower_link"/>
        <child link="${prefix}wrist_upper_link"/>
-       <limit effort="1000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
+       <limit effort="10000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
        <origin xyz="0 0 -0.05124" rpy="1.5708 -1.5708 0" />
        <axis xyz="0 1 0" />
      </joint>
@@ -208,7 +213,8 @@
      <joint name="${prefix}wrist_pitch_joint" type="revolute">
        <parent link="${prefix}wrist_upper_link"/>
        <child link="${prefix}wrist_lower_link"/>
-       <limit effort="1000.0" lower="-1.5708" upper="1.5708" velocity="0.5"/>
+       <dynamics damping="0.1"/>
+       <limit effort="10000.0" lower="-1.5708" upper="1.5708" velocity="0.5"/>
        <origin xyz="-0.0606 0 0" rpy="1.5708 -1.5708 0" />
        <axis xyz="0 0 1" />
      </joint>
@@ -241,7 +247,8 @@
      <joint name="${prefix}wrist_roll_joint" type="revolute">
        <parent link="${prefix}wrist_lower_link"/>
        <child link="${prefix}socket_link"/>
-       <limit effort="1000.0" lower="-1.49" upper="1.49" velocity="0.5"/>
+       <dynamics damping="0.1"/>
+       <limit effort="10000.0" lower="-1.49" upper="1.49" velocity="0.5"/>
        <origin xyz="0 0.084375 0" rpy="1.5708 0 0" />
        <axis xyz="1 0 0" />
      </joint>

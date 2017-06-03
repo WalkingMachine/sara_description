@@ -6,7 +6,6 @@
     <!-- Inclure tous les autres urdf.xacros ici -->
     <xacro:include filename="$(find sara_description)/urdf/torso_v1/torso.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/neck_v1/neck.urdf.xacro"/>
-    <xacro:include filename="$(find sara_description)/urdf/kinect2/kinect2.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/xtion/xtion.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/head_v1/head.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/arm_v2/arm.urdf.xacro"/>
@@ -34,11 +33,6 @@
     <xacro:sara_torso_v1 parent="base" sim="${sim}">
         <origin xyz="0.177374 0 0.70531" rpy="0 0 0" />
     </xacro:sara_torso_v1>
-
-    <!-- Torso Kinect -->
-    <xacro:kinect2 prefix="torso_" parent="base" sim="${sim}">
-        <origin xyz="0.177374 0 0.65676" rpy="-1.5708 0 -1.5708" />
-    </xacro:kinect2>
 
     <!-- Neck -->
     <xacro:sara_neck_v1 parent="torso" sim="${sim}">

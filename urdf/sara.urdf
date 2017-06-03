@@ -54,14 +54,9 @@
       <origin rpy="0 0 0" xyz="-0.055 0 0.227"/>
     </collision>
     <inertial>
-      <mass value="100"/>
-      <origin rpy="0 0 0" xyz="-0.055 0 0.227"/>
-      <inertia ixx="0.1" ixy="0.1" ixz="0.1" iyy="0.1" iyz="0.1" izz="0.1"/>
-    </inertial>
-    <inertial>
-      <mass value="30"/>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <inertia ixx="0.1" ixy="0.1" ixz="0.1" iyy="0.1" iyz="0.1" izz="0.1"/>
+      <mass value="40"/>
+      <origin rpy="-1.57 0 1.57" xyz="-0.055 0 0.227"/>
+      <inertia ixx="9.68458021" ixy="2.23668848" ixz="0.79348736" iyy="2.66882541" iyz="2.88061613" izz="9.25217984"/>
     </inertial>
   </link>
   <!-- hokuyo -->
@@ -97,7 +92,7 @@
       </ray>
       <plugin filename="libgazebo_ros_laser.so" name="gazebo_ros_front__hokuyo_controller">
         <topicName>/hokuo/scan</topicName>
-        <frameName>hokuyo_link</frameName>
+        <frameName>front_hokuyo_link</frameName>
       </plugin>
     </sensor>
   </gazebo>
@@ -224,42 +219,9 @@
       <origin rpy="1.5708 0 1.5708" xyz="-0.14427 -0.197233 0"/>
     </collision>
     <inertial>
-      <mass value="10"/>
+      <mass value="4.17008957"/>
       <origin rpy="1.5708 0 1.5708" xyz="-0.14427 -0.197233 0"/>
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
-    </inertial>
-  </link>
-  <gazebo reference="kinect2_link">
-    <turnGravityOff>false</turnGravityOff>
-    <selfCollide>true</selfCollide>
-  </gazebo>
-  <joint name="base_kinect2_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="kinect2_link"/>
-    <limit effort="1000.0" lower="0" upper="0.5" velocity="0.2"/>
-    <origin rpy="-1.5708 0 -1.5708" xyz="0.177374 0 0.65676"/>
-    <axis xyz="0 0 1"/>
-  </joint>
-  <link name="kinect2_link">
-    <visual>
-      <geometry>
-        <mesh filename="package://sara_description/meshes/kinect.STL" scale="0.001 0.001 0.001"/>
-      </geometry>
-      <origin rpy="1.5708 0 0" xyz="-0.13466 0 -0.028975"/>
-      <material name="black">
-        <color rgba="0.12 0.12 0.12 1"/>
-      </material>
-    </visual>
-    <collision>
-      <geometry>
-        <mesh filename="package://sara_description/meshes/kinect.STL" scale="0.001 0.001 0.001"/>
-      </geometry>
-      <origin rpy="1.5708 0 0" xyz="-0.13466 0 -0.028975"/>
-    </collision>
-    <inertial>
-      <mass value="10"/>
-      <origin rpy="1.5708 0 0" xyz="-0.13466 0 -0.028975"/>
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      <inertia ixx="0.03994446" ixy="0.00064933" ixz="0.00005666" iyy="0.04946667" iyz="0.00660833" izz="0.05202654"/>
     </inertial>
   </link>
   <gazebo reference="neck_link">
@@ -301,7 +263,7 @@
     <inertial>
       <mass value="2"/>
       <origin rpy="1.5708 0 1.5708" xyz="0 0 0"/>
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      <inertia ixx="0.00438238" ixy="0.0" ixz="0.0" iyy="0.0040183" iyz="0.0" izz="0.00585293"/>
     </inertial>
   </link>
   <gazebo reference="head_link">
@@ -341,9 +303,9 @@
       <origin rpy="1.5708 -1.5708 1.5708" xyz="0 0 0"/>
     </collision>
     <inertial>
-      <mass value="5"/>
+      <mass value="2.60401968"/>
       <origin rpy="1.5708 0 1.5708" xyz="0 0 0"/>
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      <inertia ixx="0.02722768" ixy="0.00015673" ixz="0.0000148" iyy="0.02716685" iyz="0.00524002" izz="0.04109802"/>
     </inertial>
   </link>
   <joint name="head_xtion_depth_joint" type="fixed">
@@ -420,12 +382,6 @@
         <mesh filename="package://sara_description/meshes/xtion.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="1.5708 0 1.5708" xyz="0 0 0"/>
-      <geometry>
-        <box size="0.035 0.185 0.025"/>
-      </geometry>
-    </collision>
   </link>
   <gazebo reference="right_clavicular_link">
     <turnGravityOff>false</turnGravityOff>
@@ -447,11 +403,11 @@
     <turnGravityOff>false</turnGravityOff>
     <selfCollide>true</selfCollide>
   </gazebo>
-  <gazebo reference="right_upper_wrist_link">
+  <gazebo reference="right_wrist_upper_link">
     <turnGravityOff>false</turnGravityOff>
     <selfCollide>true</selfCollide>
   </gazebo>
-  <gazebo reference="right_lower_wrist_link">
+  <gazebo reference="right_wrist_lower_link">
     <turnGravityOff>false</turnGravityOff>
     <selfCollide>true</selfCollide>
   </gazebo>
@@ -513,77 +469,80 @@
       <hardwareInterface>VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
-  <transmission name="right_wrist_yaw_trans" type="SimpleTransmission">
+  <transmission name="right_wrist_roll_trans" type="SimpleTransmission">
     <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="right_wrist_yaw_motor">
+    <actuator name="right_wrist_roll_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-    <joint name="right_wrist_yaw_joint">
+    <joint name="right_wrist_roll_joint">
       <hardwareInterface>VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <joint name="right_shoulder_roll_joint" type="revolute">
     <parent link="torso_link"/>
     <child link="right_clavicular_link"/>
-    <limit effort="1000.0" lower="-1.6" upper="1.4" velocity="0.5"/>
+    <dynamics damping="0.1"/>
+    <limit effort="10000.0" lower="-1.6" upper="1.4" velocity="0.5"/>
     <origin rpy="0 -1.57 0" xyz="0 -0.145 0.189"/>
     <axis xyz="0 0 1"/>
   </joint>
   <link name="right_clavicular_link">
     <visual>
       <geometry>
-        <mesh filename="package://sara_description/meshes/epaule.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sara_description/meshes/epaule1.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy="0 3.1416 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
       <material name="black">
         <color rgba="0.12 0.12 0.12 1"/>
       </material>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://sara_description/meshes/epaule.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sara_description/meshes/epaule1.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy="0 3.1416 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
     <inertial>
-      <mass value="1"/>
-      <origin rpy="0 3.1416 0" xyz="0 0 0"/>
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      <mass value="0.28506911"/>
+      <origin rpy="0 0 0" xyz="0.0 -0.03225261 -0.01842117"/>
+      <inertia ixx="0.00040678" ixy="0.0" ixz="-0.00000004" iyy="0.00039958" iyz="-0.00003453" izz="0.00059825"/>
     </inertial>
   </link>
   <joint name="right_shoulder_pitch_joint" type="revolute">
     <parent link="right_clavicular_link"/>
     <child link="right_upper_arm_upper_link"/>
-    <limit effort="1000.0" lower="-4.7124" upper="1.5708" velocity="0.5"/>
+    <dynamics damping="0.1"/>
+    <limit effort="10000.0" lower="-4.7124" upper="1.5708" velocity="0.5"/>
     <origin rpy="-1.57 0 0" xyz="0 -0.085 0"/>
     <axis xyz="0 0 1"/>
   </joint>
   <link name="right_upper_arm_upper_link">
     <visual>
       <geometry>
-        <mesh filename="package://sara_description/meshes/epaule.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sara_description/meshes/epaule2.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy="3.1416 0 1.5708" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
       <material name="black">
         <color rgba="0.12 0.12 0.12 1"/>
       </material>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://sara_description/meshes/epaule.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sara_description/meshes/epaule2.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy="3.1416 0 1.5708" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
     <inertial>
-      <mass value="1"/>
-      <origin rpy="3.1416 0 1.5708" xyz="0 0 0"/>
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      <mass value="0.28506911"/>
+      <origin rpy="0 0 0" xyz="-0.03225261 0 -0.01842117"/>
+      <inertia ixx="0.00039958" ixy="0" ixz="-0.00003453" iyy="0.00040678" iyz="0.00000004" izz="0.00059825"/>
     </inertial>
   </link>
   <joint name="right_shoulder_yaw_joint" type="revolute">
     <parent link="right_upper_arm_upper_link"/>
     <child link="right_upper_arm_lower_link"/>
-    <limit effort="1000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
+    <dynamics damping="0.1"/>
+    <limit effort="10000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
     <origin rpy="1.5708 0 1.5708" xyz="-0.085 0 0"/>
     <axis xyz="0 0 1"/>
   </joint>
@@ -592,7 +551,7 @@
       <geometry>
         <mesh filename="package://sara_description/meshes/bras_haut.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy="1.5708 3.1416 3.1416" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
       <material name="black">
         <color rgba="0.12 0.12 0.12 1"/>
       </material>
@@ -601,18 +560,19 @@
       <geometry>
         <mesh filename="package://sara_description/meshes/bras_haut.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy="1.5708 3.1416 3.1416" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
     <inertial>
-      <mass value="1"/>
-      <origin rpy="1.5708 3.1416 3.1416" xyz="0 0 0"/>
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      <mass value="0.85240803"/>
+      <origin rpy="0 0 0" xyz="-0.00168302 0.00155140 -0.13913505"/>
+      <inertia ixx="0.00538199" ixy="-0.00000635" ixz="0.00012863" iyy="0.00562525" iyz="-0.00012986" izz="0.00050159"/>
     </inertial>
   </link>
   <joint name="right_elbow_pitch_joint" type="revolute">
     <parent link="right_upper_arm_lower_link"/>
     <child link="right_forearm_upper_link"/>
-    <limit effort="1000.0" lower="-2.20" upper="1.90" velocity="0.5"/>
+    <dynamics damping="0.1"/>
+    <limit effort="10000.0" lower="-2.20" upper="1.90" velocity="0.5"/>
     <origin rpy="-1.5708 0 0" xyz="0 0 -0.31"/>
     <axis xyz="0 0 1"/>
   </joint>
@@ -621,7 +581,7 @@
       <geometry>
         <mesh filename="package://sara_description/meshes/coude.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy="3.1416 0 0" xyz="0 0 -0.0005"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.0005"/>
       <material name="black">
         <color rgba="0.12 0.12 0.12 1"/>
       </material>
@@ -630,85 +590,87 @@
       <geometry>
         <mesh filename="package://sara_description/meshes/coude.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy="3.1416 0 0" xyz="0 0 -0.0005"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
     <inertial>
-      <mass value="1"/>
-      <origin rpy="0 3.1416 0" xyz="0 0 0"/>
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      <mass value="0.28300045"/>
+      <origin rpy="0 0 0" xyz="0.00000207 0.03922132 -0.01628605"/>
+      <inertia ixx="0.00036109" ixy="0.0" ixz="-0.00000002" iyy="0.00029872" iyz="0.00001701" izz="0.00055069"/>
     </inertial>
   </link>
   <joint name="right_elbow_yaw_joint" type="revolute">
     <parent link="right_forearm_upper_link"/>
     <child link="right_forearm_lower_link"/>
-    <limit effort="1000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
+    <dynamics damping="0.1"/>
+    <limit effort="10000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
     <origin rpy="1.5708 -1.5708 0" xyz="0 0.0945 0"/>
     <axis xyz="0 0 1"/>
   </joint>
   <link name="right_forearm_lower_link">
     <visual>
       <geometry>
-        <mesh filename="package://sara_description/meshes/avant-bras.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sara_description/meshes/avant_bras.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy="-1.5708 0 -1.5708" xyz="-0.0338 0.0338 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
       <material name="black">
         <color rgba="0.12 0.12 0.12 1"/>
       </material>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://sara_description/meshes/avant-bras.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sara_description/meshes/avant_bras.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy="-1.5708 0 -1.5708" xyz="-0.0338 0.0338 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
     <inertial>
-      <mass value="1"/>
-      <origin rpy="-1.5708 0 -1.5708" xyz="-0.0676 0.0676 0"/>
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      <mass value="0.1177"/>
+      <origin rpy="0 0 0" xyz="0.0 -0.00000184 -0.03625492"/>
+      <inertia ixx="0.54274952" ixy="0.0" ixz="0.0" iyy="1.03078569" iyz="0.0" izz="0.00010905"/>
     </inertial>
   </link>
   <joint name="right_wrist_joint" type="fixed">
     <parent link="right_forearm_lower_link"/>
-    <child link="right_upper_wrist_link"/>
-    <limit effort="1000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
-    <origin rpy="1.5708 -1.5708 0" xyz="0 0 -0.11184"/>
+    <child link="right_wrist_upper_link"/>
+    <limit effort="10000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
+    <origin rpy="1.5708 -1.5708 0" xyz="0 0 -0.05124"/>
     <axis xyz="0 1 0"/>
   </joint>
-  <link name="right_upper_wrist_link">
+  <link name="right_wrist_upper_link">
     <visual>
       <geometry>
         <mesh filename="package://sara_description/meshes/poignet_haut.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy="1.5708 -1.5708 0" xyz="0.0706 0.0283 -0.030"/>
-      <material name="blue">
-        <color rgba="0 0 1 .06"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="black">
+        <color rgba="0.12 0.12 0.12 1"/>
       </material>
     </visual>
     <collision>
       <geometry>
         <mesh filename="package://sara_description/meshes/poignet_haut.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy="1.5708 -1.5708 0" xyz="0.0706 0.0283 -0.030"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
     <inertial>
-      <mass value="1"/>
-      <origin rpy="-1.5708 0 -1.5708" xyz="-0.0676 0.0676 0"/>
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      <mass value="0.1956991"/>
+      <origin rpy="0 0 0" xyz="-0.03893593 0.00017228 -0.00000284"/>
+      <inertia ixx="0.00007035" ixy="-0.00000150" ixz="0.0" iyy="0.00011510" iyz="0.0" izz="0.00013235"/>
     </inertial>
   </link>
   <joint name="right_wrist_pitch_joint" type="revolute">
-    <parent link="right_upper_wrist_link"/>
-    <child link="right_lower_wrist_link"/>
-    <limit effort="1000.0" lower="-1.5708" upper="1.5708" velocity="0.5"/>
-    <origin rpy="1.5708 -1.5708 0" xyz="0 0 0"/>
+    <parent link="right_wrist_upper_link"/>
+    <child link="right_wrist_lower_link"/>
+    <dynamics damping="0.1"/>
+    <limit effort="10000.0" lower="-1.5708" upper="1.5708" velocity="0.5"/>
+    <origin rpy="1.5708 -1.5708 0" xyz="-0.0606 0 0"/>
     <axis xyz="0 0 1"/>
   </joint>
-  <link name="right_lower_wrist_link">
+  <link name="right_wrist_lower_link">
     <visual>
       <geometry>
         <mesh filename="package://sara_description/meshes/poignet_bas.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy=" 0 1.5708 0" xyz="-0.02575  -0.01375 0.0305448"/>
+      <origin rpy=" 0 0 0" xyz="0 0 0"/>
       <material name="black">
         <color rgba="0.12 0.12 0.12 1"/>
       </material>
@@ -717,41 +679,42 @@
       <geometry>
         <mesh filename="package://sara_description/meshes/poignet_bas.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy=" 0 1.5708 0" xyz="-0.02575  -0.01375 0.0305448"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
     <inertial>
-      <mass value="1"/>
-      <origin rpy="-1.5708 0 -1.5708" xyz="-0.0676 0.0676 0"/>
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      <mass value="0.18747684"/>
+      <origin rpy=" 0 0 0" xyz="0.00001243 0.05721169 0.0"/>
+      <inertia ixx="0.00015391" ixy="-0.00000060" ixz="0.0" iyy="0.00006260" iyz="0.0" izz="0.00015218"/>
     </inertial>
   </link>
-  <joint name="right_wrist_yaw_joint" type="revolute">
-    <parent link="right_lower_wrist_link"/>
+  <joint name="right_wrist_roll_joint" type="revolute">
+    <parent link="right_wrist_lower_link"/>
     <child link="right_socket_link"/>
-    <limit effort="1000.0" lower="-1.49" upper="1.49" velocity="0.5"/>
+    <dynamics damping="0.1"/>
+    <limit effort="10000.0" lower="-1.49" upper="1.49" velocity="0.5"/>
     <origin rpy="1.5708 0 0" xyz="0 0.084375 0"/>
     <axis xyz="1 0 0"/>
   </joint>
   <link name="right_socket_link">
     <visual>
       <geometry>
-        <mesh filename="package://sara_description/meshes/attache-pince.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sara_description/meshes/attache_pince.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy="0 0 1.5708" xyz="0.028925 -0.025 -0.0362070"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
       <material name="black">
         <color rgba="0.12 0.12 0.12 1"/>
       </material>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://sara_description/meshes/attache-pince.STL" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sara_description/meshes/attache_pince.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy="0 0 1.5708" xyz="0.028925 -0.025 -0.0362070"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
     <inertial>
-      <mass value="1"/>
-      <origin rpy="-1.5708 0 -1.5708" xyz="-0.0676 0.0676 0"/>
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      <mass value="0.02796"/>
+      <origin rpy="0 0 0" xyz="0.0 0.0 -0.01570460"/>
+      <inertia ixx="0.00000889" ixy="0.0" ixz="0.0" iyy="0.00002569" iyz="0.0" izz="0.00002493"/>
     </inertial>
   </link>
   <!-- End Effector -->
@@ -814,13 +777,13 @@
   <link name="right_robotiq_85_base_link">
     <visual>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/visual/robotiq_85_gripper_base.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/visual/robotiq_85_gripper_base.dae"/>
       </geometry>
       <origin rpy="3.1415 0 1.5707" xyz="0 0 0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/collision/robotiq_85_gripper_base.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/collision/robotiq_85_gripper_base.dae"/>
       </geometry>
       <origin rpy="1.5707 0 1.5707" xyz="0 0 0"/>
     </collision>
@@ -852,13 +815,13 @@
   <link name="right_robotiq_85_left_knuckle_link">
     <visual>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_0_L.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_0_L.dae"/>
       </geometry>
       <origin rpy="3.14159 -1.5707 0" xyz="0 .04191 -.0306"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_0_L.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_0_L.dae"/>
       </geometry>
       <origin rpy="1.5707 -1.5707 0" xyz="0 .04191 -.0306"/>
     </collision>
@@ -871,13 +834,13 @@
   <link name="right_robotiq_85_right_knuckle_link">
     <visual>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_0_R.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_0_R.dae"/>
       </geometry>
       <origin rpy="3.14159 1.5707 0" xyz="0 .04191 -.0306"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_0_R.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_0_R.dae"/>
       </geometry>
       <origin rpy="1.5707 1.5707 0" xyz="0 .04191 -.0306"/>
     </collision>
@@ -908,13 +871,13 @@
   <link name="right_robotiq_85_left_finger_link">
     <visual>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_1_L.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_1_L.dae"/>
       </geometry>
       <origin rpy="0 1.5707 0" xyz="0 -.03683 .06194"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_1_L.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_1_L.dae"/>
       </geometry>
       <origin rpy="-1.5707 1.5707 0" xyz="0 -.03683 .06194"/>
     </collision>
@@ -927,13 +890,13 @@
   <link name="right_robotiq_85_right_finger_link">
     <visual>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_1_R.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_1_R.dae"/>
       </geometry>
       <origin rpy="0 -1.5707 0" xyz="0 -.03683 .06194"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_1_R.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_1_R.dae"/>
       </geometry>
       <origin rpy="-1.5707 -1.5707 0" xyz="0 -.03683 .06194"/>
     </collision>
@@ -966,13 +929,13 @@
   <link name="right_robotiq_85_left_inner_knuckle_link">
     <visual>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_2_L.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_2_L.dae"/>
       </geometry>
       <origin rpy="0 1.5707 0" xyz="0 -.04843 .0127"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_2_L.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_2_L.dae"/>
       </geometry>
       <origin rpy="-1.5707 1.5707 0" xyz="0 -.04843 .0127"/>
     </collision>
@@ -985,13 +948,13 @@
   <link name="right_robotiq_85_right_inner_knuckle_link">
     <visual>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_2_R.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_2_R.dae"/>
       </geometry>
       <origin rpy="0 -1.5707 0" xyz="0 -.04843 .0127"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_2_R.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_2_R.dae"/>
       </geometry>
       <origin rpy="-1.5707 -1.5707 0" xyz="0 -.04843 .0127"/>
     </collision>
@@ -1024,13 +987,13 @@
   <link name="right_robotiq_85_left_finger_tip_link">
     <visual>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_3_L.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_3_L.dae"/>
       </geometry>
       <origin rpy="0 1.5707 0" xyz="0 -.090381 .051505"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_3_L.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_3_L.dae"/>
       </geometry>
       <origin rpy="-1.5707 1.5707 0" xyz="0 -.090381 .051505"/>
     </collision>
@@ -1043,13 +1006,13 @@
   <link name="right_robotiq_85_right_finger_tip_link">
     <visual>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_3_R.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/visual/robotiq_85_gripper_joint_3_R.dae"/>
       </geometry>
       <origin rpy="0 -1.5707 0" xyz="0 -.090381 .051505"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robotiq_c2_model_visualization/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_3_R.dae"/>
+        <mesh filename="package://robotiq_c2_description/meshes/robotiq_c2/collision/robotiq_85_gripper_joint_3_R.dae"/>
       </geometry>
       <origin rpy="-1.5707 -1.5707 0" xyz="0 -.090381 .051505"/>
     </collision>

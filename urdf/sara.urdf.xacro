@@ -42,7 +42,7 @@
 
     <!-- Neck -->
     <xacro:sara_neck_v1 parent="torso" sim="${sim}">
-        <origin xyz="0 0 0.10036" rpy="0 0 0"/>
+        <origin xyz="0.032295 0 0.10036" rpy="0 0 0"/>
     </xacro:sara_neck_v1>
 
     <!-- Head -->
@@ -52,7 +52,7 @@
 
     <!-- Head Xtion -->
     <xacro:asus_xtion prefix="head_" parent="head" sim="${sim}">
-        <origin xyz="0.1008657 0 0.10601" rpy="1.57 0 0" />
+        <origin xyz="0.1033902 -0.1185241 0" rpy="1.57 0 0" />0.1008657
     </xacro:asus_xtion>
 
     <!-- Arm -->

@@ -32,17 +32,17 @@
 
     <!-- Torso -->
     <xacro:sara_torso_v1 parent="base" sim="${sim}">
-        <origin xyz="0.177374 0 0.70531" rpy="0 0 0" />
+        <origin xyz="0.1749806 0 1.189" rpy="0 0 0" />
     </xacro:sara_torso_v1>
 
     <!-- Torso Kinect -->
     <xacro:kinect2 prefix="torso_" parent="base" sim="${sim}">
-        <origin xyz="0.177374 0 0.65676" rpy="-1.5708 0 -1.5708" />
+        <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708" />
     </xacro:kinect2>
 
     <!-- Neck -->
     <xacro:sara_neck_v1 parent="torso" sim="${sim}">
-        <origin xyz="0.032295 0 0.2777" rpy="0 0 0"/>
+        <origin xyz="0.032295 0 0.10036" rpy="0 0 0"/>
     </xacro:sara_neck_v1>
 
     <!-- Head -->
@@ -52,12 +52,12 @@
 
     <!-- Head Xtion -->
     <xacro:asus_xtion prefix="head_" parent="head" sim="${sim}">
-        <origin xyz="0.0776104 -0.13 0" rpy="1.57 0 0" />
+        <origin xyz="0.0776104 -0.13 0" rpy="1.57 0 0" />0.1008657
     </xacro:asus_xtion>
 
     <!-- Arm -->
     <xacro:sara_arm_v2 prefix="right_" parent="torso" sim="${sim}">
-        <origin xyz="0 -0.145 0.189" rpy="0 -1.57 0"/>
+        <origin xyz="0 -0.1437625 0.01166" rpy="0 -1.57 0"/>
     </xacro:sara_arm_v2>
 
     <!-- End Effector -->

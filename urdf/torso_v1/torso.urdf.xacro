@@ -20,7 +20,7 @@
             <geometry>
                <mesh filename="package://sara_description/meshes/torse.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-            <origin xyz="-0.14427 -0.197233 0" rpy="1.5708 0 1.5708"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <material name="black">
                <color rgba="0.12 0.12 0.12 1"/>
             </material>

@@ -210,6 +210,73 @@
        </inertial>
      </link>
 
+     <joint name="${prefix}support_xtion_joint" type="fixed">
+       <parent link="${prefix}wrist_upper_link"/>
+       <child link="${prefix}xtion_support_link"/>
+       <limit effort="10000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
+       <origin xyz="0 0.0216704 0" rpy="0 0 0" />
+       <axis xyz="0 1 0" />
+     </joint>
+
+     <link name="${prefix}xtion_support_link">
+       <visual>
+         <geometry>
+           <mesh filename="package://sara_description/meshes/support_poignet.STL" scale="0.001 0.001 0.001"/>
+         </geometry>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <material name="black">
+           <color rgba="0.12 0.12 0.12 1"/>
+         </material>
+       </visual>
+       <collision>
+         <geometry>
+           <mesh filename="package://sara_description/meshes/support_poignet.STL" scale="0.001 0.001 0.001"/>
+         </geometry>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+       </collision>
+       <inertial>
+         <mass value="0" />
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <inertia ixx = "0" ixy = "0" ixz = "0"
+                  iyy = "0" iyz = "0"
+                  izz = "0" />
+       </inertial>
+     </link>
+
+     <joint name="xtion_joint" type="fixed">
+       <parent link="${prefix}xtion_support_link"/>
+       <child link="${prefix}xtion_link"/>
+       <dynamics damping="0.1"/>
+       <limit effort="10000.0" lower="-1.5708" upper="1.5708" velocity="0.5"/>
+       <origin xyz="0.0115 0.035 0" rpy="0 0 0" />
+       <axis xyz="0 0 1" />
+     </joint>
+
+     <link name="${prefix}xtion_link">
+       <visual>
+         <geometry>
+           <mesh filename="package://sara_description/meshes/xtion_bras.STL" scale="0.001 0.001 0.001"/>
+         </geometry>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <material name="black">
+           <color rgba="0.12 0.12 0.12 1"/>
+         </material>
+       </visual>
+       <collision>
+         <geometry>
+           <mesh filename="package://sara_description/meshes/xtion_bras.STL" scale="0.001 0.001 0.001"/>
+         </geometry>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+       </collision>
+       <inertial>
+         <mass value="0" />
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <inertia ixx = "0" ixy = "0" ixz = "0"
+                  iyy = "0" iyz = "0"
+                  izz = "0" />
+       </inertial>
+     </link>
+
      <joint name="${prefix}wrist_pitch_joint" type="revolute">
        <parent link="${prefix}wrist_upper_link"/>
        <child link="${prefix}wrist_lower_link"/>

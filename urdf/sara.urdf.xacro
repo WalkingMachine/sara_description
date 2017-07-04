@@ -7,7 +7,7 @@
     <xacro:include filename="$(find sara_description)/urdf/torso_v1/torso.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/neck_v1/neck.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/kinect2/kinect2.urdf.xacro"/>
-    <xacro:include filename="$(find sara_description)/urdf/xtion/xtion.urdf.xacro"/>
+    <xacro:include filename="$(find sara_description)/urdf/head_xtion/head_xtion.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/head_v1/head.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/arm_v2/arm.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/base_v2/base.urdf.xacro"/>

@@ -6,7 +6,7 @@
     <xacro:macro name="asus_xtion" params="prefix parent *origin sim">
 
         <xacro:if value="${sim}">
-            <xacro:include filename="$(find sara_description)/urdf/xtion/xtion.gazebo.xacro" />
+            <xacro:include filename="$(find sara_description)/urdf/head_xtion/head_xtion.gazebo.xacro" />
             <xacro:xtion_gazebo prefix="${prefix}"/>
         </xacro:if>
 
@@ -25,7 +25,7 @@
         <visual>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
-              <mesh filename="package://sara_description/meshes/xtion.STL" scale="0.001 0.001 0.001"/>
+              <mesh filename="package://sara_description/meshes/head_xtion.STL" scale="0.001 0.001 0.001"/>
           </geometry>
         </visual>
       </link>

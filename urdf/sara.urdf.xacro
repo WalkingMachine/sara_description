@@ -52,7 +52,7 @@
 
     <!-- Head Xtion -->
     <xacro:asus_xtion prefix="head_" parent="head" sim="${sim}">
-        <origin xyz="0.1033902 -0.1185241 0" rpy="1.57 0 0" />0.1008657
+        <origin xyz="0.0776104 -0.13 0" rpy="1.57 0 0" />0.1008657
     </xacro:asus_xtion>
 
     <!-- Arm -->

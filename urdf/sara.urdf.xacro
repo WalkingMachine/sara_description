@@ -13,6 +13,7 @@
     <xacro:include filename="$(find sara_description)/urdf/base_v2/base.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/hokuyo/hokuyo.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/mecanum_wheel/mecanum_wheel.urdf.xacro"/>
+    <xacro:include filename="$(find sara_description)/urdf/arm_xtion/arm_xtion.urdf.xacro"/>
 
     <xacro:if value="${sim}">
         <xacro:include filename="$(find sara_description)/urdf/sara.gazebo.xacro" />
@@ -51,14 +52,18 @@
     </xacro:sara_head_v1>
 
     <!-- Head Xtion -->
-    <xacro:asus_xtion prefix="head_" parent="head" sim="${sim}">
+    <xacro:asus_head_xtion prefix="head_" parent="head" sim="${sim}">
         <origin xyz="0.0776104 -0.13 0" rpy="1.57 0 0" />0.1008657
-    </xacro:asus_xtion>
+    </xacro:asus_head_xtion>
 
     <!-- Arm -->
     <xacro:sara_arm_v2 prefix="right_" parent="torso" sim="${sim}">
         <origin xyz="0 -0.1437625 0.01166" rpy="0 -1.57 0"/>
     </xacro:sara_arm_v2>
+    <!-- Arm xtion -->
+    <xacro:asus_arm_xtion prefix="right_" parent="right_wrist_upper_link" sim="${sim}">
+        <origin xyz="0 0.0216704 0" rpy="0 0 0" />0.1008657
+    </xacro:asus_arm_xtion>
 
     <!-- End Effector -->
 

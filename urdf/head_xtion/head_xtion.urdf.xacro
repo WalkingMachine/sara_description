@@ -3,7 +3,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
     <xacro:property name="M_PI" value="3.1415926535897931" />
 
-    <xacro:macro name="asus_xtion" params="prefix parent *origin sim">
+    <xacro:macro name="asus_head_xtion" params="prefix parent *origin sim">
 
         <xacro:if value="${sim}">
             <xacro:include filename="$(find sara_description)/urdf/head_xtion/head_xtion.gazebo.xacro" />

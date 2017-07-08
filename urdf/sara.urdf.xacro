@@ -14,6 +14,7 @@
     <xacro:include filename="$(find sara_description)/urdf/hokuyo/hokuyo.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/mecanum_wheel/mecanum_wheel.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/arm_xtion/arm_xtion.urdf.xacro"/>
+    <xacro:include filename="$(find robotiq_140_description)/urdf/robotiq_arg2f_140_model_macro.xacro" />
 
     <xacro:if value="${sim}">
         <xacro:include filename="$(find sara_description)/urdf/sara.gazebo.xacro" />
@@ -73,10 +74,10 @@
         <origin xyz="0 0 -0.02989" rpy="0 1.5708 0"/>
     </xacro:robotiq_85_gripper>-->
 
-    <!-- Gripper C2 (old model)-->
+    <!-- Gripper C2 (old model)
     <xacro:include filename="$(find robotiq_c2_description)/urdf/robotiq_c2_model_macro.xacro"/>
     <xacro:robotiq_c2_model prefix="right_" parent="right_socket_link">
         <origin xyz="0 0 -0.02989" rpy="0 1.5708 0"/>
-    </xacro:robotiq_c2_model>
-
+    </xacro:robotiq_c2_model>-->
+    <xacro:robotiq_arg2f_140 prefix=""/>
 </robot>

@@ -11,7 +11,7 @@
 
     <!-- publish all the frames to TF -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
-      <!--<remap from="/joint_states" to="/sara_joint_state_controller" />-->
+    <!--<remap from="/joint_states" to="/sara_joint_state_controller" />-->
     </node>
 
     <group  if="$(arg test)">

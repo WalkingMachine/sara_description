@@ -283,7 +283,7 @@
        <child link="robotiq_arg2f_link"/>
        <dynamics damping="0.1"/>
        <limit effort="10000.0" lower="-1.49" upper="1.49" velocity="0.5"/>
-       <origin xyz="0 0 0" rpy="0 3.14 1.57" />
+       <origin xyz="0 0 -0.0360875" rpy="0 3.14 1.570796" />
         <axis xyz="0 1 0" />
      </joint>
 

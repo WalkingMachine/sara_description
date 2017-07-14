@@ -69,7 +69,7 @@
 
     <!-- Base xtion -->
     <xacro:asus_base_xtion prefix="base_" parent="base" sim="${sim}">
-        <origin xyz="0.2603774 0 0.9846921" rpy="0 0 0" />
+        <origin xyz="0.2003774 0 0.9846921" rpy="0 0 0" />
     </xacro:asus_base_xtion>
 
     <!-- End Effector -->

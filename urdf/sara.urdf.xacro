@@ -14,6 +14,7 @@
     <xacro:include filename="$(find sara_description)/urdf/hokuyo/hokuyo.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/mecanum_wheel/mecanum_wheel.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/arm_xtion/arm_xtion.urdf.xacro"/>
+    <xacro:include filename="$(find sara_description)/urdf/base_xtion/base_xtion.urdf.xacro"/>
     <xacro:include filename="$(find robotiq_140_description)/urdf/robotiq_arg2f_140_model_macro.xacro" />
 
     <xacro:if value="${sim}">
@@ -54,7 +55,7 @@
 
     <!-- Head Xtion -->
     <xacro:asus_head_xtion prefix="head_" parent="head" sim="${sim}">
-        <origin xyz="0.0776104 -0.13 0" rpy="1.57 0 0" />0.1008657
+        <origin xyz="0.0776104 -0.13 0" rpy="1.57 0 0" />
     </xacro:asus_head_xtion>
 
     <!-- Arm -->
@@ -63,8 +64,13 @@
     </xacro:sara_arm_v2>
     <!-- Arm xtion -->
     <xacro:asus_arm_xtion prefix="right_" parent="right_wrist_upper_link" sim="${sim}">
-        <origin xyz="0 0.0216704 0" rpy="0 0 0" />0.1008657
+        <origin xyz="0 0.0216704 0" rpy="0 0 0" />
     </xacro:asus_arm_xtion>
+
+    <!-- Base xtion -->
+    <xacro:asus_base_xtion prefix="base_" parent="base" sim="${sim}">
+        <origin xyz="0.2003774 0 0.9846921" rpy="0 0 0" />
+    </xacro:asus_base_xtion>
 
     <!-- End Effector -->
 

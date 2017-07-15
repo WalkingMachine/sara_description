@@ -6,7 +6,7 @@
     <xacro:macro name="asus_base_xtion" params="prefix parent *origin sim">
 
         <xacro:if value="${sim}">
-            <xacro:include filename="$(find sara_description)/urdf/arm_xtion/arm_xtion.gazebo.xacro" />
+            <xacro:include filename="$(find sara_description)/urdf/base_xtion/base_xtion.gazebo.xacro" />
             <xacro:xtion_gazebo prefix="${prefix}"/>
         </xacro:if>
 

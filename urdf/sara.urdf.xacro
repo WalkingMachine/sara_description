@@ -85,5 +85,5 @@
     <xacro:robotiq_c2_model prefix="right_" parent="right_socket_link">
         <origin xyz="0 0 -0.02989" rpy="0 1.5708 0"/>
     </xacro:robotiq_c2_model>-->
-    <xacro:robotiq_arg2f_140 prefix=""/>
+    <xacro:robotiq_arg2f_140 prefix="right_"/>
 </robot>

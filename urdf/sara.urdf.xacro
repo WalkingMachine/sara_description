@@ -35,7 +35,7 @@
 
     <!-- Torso -->
     <xacro:sara_torso_v1 parent="base" sim="${sim}">
-        <origin xyz="0.1749806 0 1.189" rpy="0 0 0" />
+        <origin xyz="0.1999806 0 1.189" rpy="0 0 0" />
     </xacro:sara_torso_v1>
 
     <!-- Torso Kinect -->
@@ -69,7 +69,7 @@
 
     <!-- Base xtion -->
     <xacro:asus_base_xtion prefix="base_" parent="base" sim="${sim}">
-        <origin xyz="0.2003774 0 0.9846921" rpy="0 0 0" />
+        <origin xyz="0.2253774 0 0.9846921" rpy="0 0 0" />
     </xacro:asus_base_xtion>
 
     <!-- End Effector -->

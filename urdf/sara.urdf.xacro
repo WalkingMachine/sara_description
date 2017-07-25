@@ -31,7 +31,7 @@
     </xacro:hokuyo>
 
     <!-- Wheels -->
-    <xacro:four_mecanum_wheels parent="base" x_center="0.22735" y_center="0.2056310" sim="${sim}"/>
+    <xacro:four_mecanum_wheels parent="base" x_center="0.22735" y_center="0.23" sim="${sim}"/>
 
     <!-- Torso -->
     <xacro:sara_torso_v1 parent="base" sim="${sim}">

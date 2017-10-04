@@ -12,7 +12,7 @@
        <joint name="head_yaw_joint" type="revolute">
            <parent link="${parent}_link"/>
            <child link="neck_link"/>
-           <limit effort="1000.0" lower="-1.22173" upper="1.22173" velocity="0.5"/>
+           <limit effort="1000.0" lower="-1.5" upper="1.5" velocity="0.5"/>
            <xacro:insert_block name="origin"/>
            <axis xyz="0 0 1"/>
        </joint>

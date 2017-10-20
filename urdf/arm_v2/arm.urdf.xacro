@@ -13,7 +13,7 @@
        <parent link="${parent}_link"/>
        <child link="${prefix}clavicular_link"/>
        <dynamics damping="0.1"/>
-       <limit effort="10000.0" lower="-1" upper="1" velocity="0.5"/>
+       <limit effort="10000.0" lower="-1.57" upper="1.5" velocity="0.57"/>
        <xacro:insert_block name="origin"/>
        <axis xyz="0 0 1" />
      </joint>
@@ -47,7 +47,7 @@
        <parent link="${prefix}clavicular_link"/>
        <child link="${prefix}upper_arm_upper_link"/>
        <dynamics damping="0.1"/>
-       <limit effort="10000.0" lower="-1.9" upper="0.6" velocity="0.5"/>
+       <limit effort="10000.0" lower="-1.9" upper="0.6" velocity="1"/>
        <origin xyz="0 -0.085 0" rpy="-1.57 0 0" />
        <axis xyz="0 0 1" />
      </joint>
@@ -79,7 +79,7 @@
        <parent link="${prefix}upper_arm_upper_link"/>
        <child link="${prefix}upper_arm_lower_link"/>
        <dynamics damping="0.1"/>
-       <limit effort="10000.0" lower="-1.5" upper="1.3" velocity="0.5"/>
+       <limit effort="10000.0" lower="-1.5" upper="1.3" velocity="1"/>
        <origin xyz="-0.085 0 0" rpy="1.5708 0 1.5708" />
        <axis xyz="0 0 1" />
      </joint>
@@ -113,7 +113,7 @@
         <parent link="${prefix}upper_arm_lower_link"/>
         <child link="${prefix}forearm_upper_link"/>
         <dynamics damping="0.1"/>
-        <limit effort="10000.0" lower="-0.5" upper="1.40" velocity="0.5"/>
+        <limit effort="10000.0" lower="-0.75" upper="1.40" velocity="1"/>
         <origin xyz="0 0 -0.31" rpy="-1.5708 -1.5708 0" />
         <axis xyz="0 0 1" />
       </joint>
@@ -147,7 +147,7 @@
        <parent link="${prefix}forearm_upper_link"/>
        <child link="${prefix}forearm_lower_link"/>
        <dynamics damping="0.1"/>
-       <limit effort="10000.0" lower="-1.5" upper="1.5" velocity="0.5"/>
+       <limit effort="10000.0" lower="-0.5" upper="3.0" velocity="1"/>
        <origin xyz="0 0.0945 0" rpy="1.5708 -1.5708 0" />
        <axis xyz="0 0 1" />
      </joint>
@@ -180,7 +180,7 @@
      <joint name="${prefix}wrist_joint" type="fixed">
        <parent link="${prefix}forearm_lower_link"/>
        <child link="${prefix}wrist_upper_link"/>
-       <limit effort="10000.0" lower="-3.1416" upper="3.1416" velocity="0.5"/>
+       <limit effort="10000.0" lower="-3.1416" upper="3.1416" velocity="1"/>
        <origin xyz="0 0 -0.05124" rpy="1.5708 -1.5708 0" />
        <axis xyz="0 1 0" />
      </joint>
@@ -214,7 +214,7 @@
        <parent link="${prefix}wrist_upper_link"/>
        <child link="${prefix}wrist_lower_link"/>
        <dynamics damping="0.1"/>
-       <limit effort="10000.0" lower="-1.5" upper="1.5" velocity="0.5"/>
+       <limit effort="10000.0" lower="-1.5" upper="1.5" velocity="1"/>
        <origin xyz="-0.0606 0 0" rpy="1.5708 -1.5708 0" />
        <axis xyz="0 0 1" />
      </joint>
@@ -248,7 +248,7 @@
        <parent link="${prefix}wrist_lower_link"/>
        <child link="${prefix}socket_link"/>
        <dynamics damping="0.1"/>
-       <limit effort="10000.0" lower="-1.5" upper="1.5" velocity="0.5"/>
+       <limit effort="10000.0" lower="-1.5" upper="1.5" velocity="1"/>
        <origin xyz="0 0.084375 0" rpy="1.5708 0 0" />
        <axis xyz="1 0 0" />
      </joint>
@@ -282,7 +282,7 @@
        <parent link="${prefix}socket_link"/>
        <child link="${prefix}robotiq_arg2f_link"/>
        <dynamics damping="0.1"/>
-       <limit effort="10000.0" lower="-1.49" upper="1.49" velocity="0.5"/>
+       <limit effort="10000.0" lower="-1.49" upper="1.49" velocity="1"/>
        <origin xyz="0 0 -0.0360875" rpy="0 3.14 1.570796" />
         <axis xyz="0 1 0" />
      </joint>

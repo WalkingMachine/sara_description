@@ -293,7 +293,7 @@
        <child link="${prefix}_dummy"/>
        <dynamics damping="0.1"/>
        <limit effort="10000.0" lower="-1.49" upper="1.49" velocity="1"/>
-       <origin xyz="0 0 0" rpy="1.57 1.57 0" />
+       <origin xyz="0 0 -0.2" rpy="1.57 1.57 0" />
         <axis xyz="0 1 0" />
      </joint>
 

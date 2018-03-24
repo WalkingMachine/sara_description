@@ -6,15 +6,12 @@
     <!-- Inclure tous les autres urdf.xacros ici -->
     <xacro:include filename="$(find sara_description)/urdf/torso_v1/torso.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/neck_v1/neck.urdf.xacro"/>
-    <xacro:include filename="$(find sara_description)/urdf/kinect2/kinect2.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/head_xtion/head_xtion.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/head_v1/head.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/arm_v2/arm.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/base_v2/base.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/hokuyo/hokuyo.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/mecanum_wheel/mecanum_wheel.urdf.xacro"/>
-    <xacro:include filename="$(find sara_description)/urdf/arm_xtion/arm_xtion.urdf.xacro"/>
-    <xacro:include filename="$(find sara_description)/urdf/base_xtion/base_xtion.urdf.xacro"/>
     <xacro:include filename="$(find robotiq_140_description)/urdf/robotiq_arg2f_140_model_macro.xacro" />
 
     <xacro:if value="${sim}">
@@ -38,10 +35,6 @@
         <origin xyz="0.1999806 0 1.189" rpy="0 0 0" />
     </xacro:sara_torso_v1>
 
-    <!-- Torso Kinect -->
-    <xacro:kinect2 prefix="torso_" parent="base" sim="${sim}">
-        <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708" />
-    </xacro:kinect2>
 
     <!-- Neck -->
     <xacro:sara_neck_v1 parent="torso" sim="${sim}">
@@ -62,15 +55,6 @@
     <xacro:sara_arm_v2 prefix="right_" parent="torso" sim="${sim}">
         <origin xyz="0 -0.1437625 0.01166" rpy="0 -1.57 0"/>
     </xacro:sara_arm_v2>
-    <!-- Arm xtion -->
-    <xacro:asus_arm_xtion prefix="right_" parent="right_wrist_upper_link" sim="${sim}">
-        <origin xyz="0 0.0216704 0" rpy="0 0 0" />
-    </xacro:asus_arm_xtion>
-
-    <!-- Base xtion -->
-    <xacro:asus_base_xtion prefix="base_" parent="base" sim="${sim}">
-        <origin xyz="0.2253774 0 0.9846921" rpy="0 0 0" />
-    </xacro:asus_base_xtion>
 
     <!-- End Effector -->
 

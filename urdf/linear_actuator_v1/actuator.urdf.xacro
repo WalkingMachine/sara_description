@@ -10,21 +10,19 @@
     <joint name="${parent}_actuator_joint" type="prismatic">
             <parent link="${parent}_link"/>
             <child link="actuator_link"/>
-            <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <xacro:insert_block name="origin"/>
+            <limit effort="1000.0" lower="0" upper="0.675" velocity="1"/>
             <axis xyz="0 0 1" />
     </joint>
 
         <link name="actuator_link">
-                 <visual>
-                    <geometry>
-                       <box size="1 1 1" />
-                    </geometry>
-                    <origin xyz="0 0 0" rpy="0 0 0"/>
-                    <material name="black">
-                       <color rgba="0.12 0.12 0.12 1"/>
-                    </material>
-                 </visual>
+
+            <inertial>
+      <origin rpy="0 0 0" xyz="-0.0013 -0.0009 0.2935" />
+      <mass value="10.7796" />
+      <inertia ixx="0.3354" ixy="0.0" ixz="-0.0162" iyy="0.3354" iyz="-0.0006" izz="0.0954" />
+    </inertial>
+
 
  
         </link>

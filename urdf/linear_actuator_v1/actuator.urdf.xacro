@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" >
+
+   <xacro:macro name="sara_linear_actuator_v1" params="parent *origin sim">
+       <xacro:if value="${sim}">
+           <xacro:include filename="$(find sara_description)/urdf/linear_actuator_v1/torso.gazebo.xacro" />
+           <xacro:sara_torso_gazebo_v1/>
+       </xacro:if>
+
+    <joint name="${parent}_actuator_joint" type="prismatic">
+            <parent link="${parent}_link"/>
+            <child link="actuator_link"/>
+            <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <axis xyz="0 0 1" />
+    </joint>
+
+        <link name="actuator_link">
+                 <visual>
+                    <geometry>
+                       <box size="1 1 1" />
+                    </geometry>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <material name="black">
+                       <color rgba="0.12 0.12 0.12 1"/>
+                    </material>
+                 </visual>
+
+ 
+        </link>
+
+   </xacro:macro>
+</robot>

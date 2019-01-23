@@ -4,6 +4,7 @@
     <xacro:property name="sim" value="$(arg sim)"/>
 
     <!-- Inclure tous les autres urdf.xacros ici -->
+    <xacro:include filename="$(find sara_description)/urdf/linear_actuator_v1/actuator.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/torso_v1/torso.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/neck_v1/neck.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/head_xtion/head_xtion.urdf.xacro"/>
@@ -30,10 +31,18 @@
     <!-- Wheels -->
     <xacro:four_mecanum_wheels parent="base" x_center="0.22735" y_center="0.23" sim="${sim}"/>
 
+
+    <!-- Linear Actuator 
+    <xacro:sara_linear_actuator_v1 parent="base" sim="${sim}">
+        <origin xyz="0 0 1.189" rpy="0 0 0" />
+    </xacro:sara_linear_actuator_v1>
+
+-->
     <!-- Torso -->
     <xacro:sara_torso_v1 parent="base" sim="${sim}">
         <origin xyz="0.1999806 0 1.189" rpy="0 0 0" />
     </xacro:sara_torso_v1>
+
 
 
     <!-- Neck -->

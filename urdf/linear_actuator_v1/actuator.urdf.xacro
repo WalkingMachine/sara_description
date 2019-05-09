@@ -3,7 +3,7 @@
 
    <xacro:macro name="sara_linear_actuator_v1" params="parent *origin sim">
        <xacro:if value="${sim}">
-           <xacro:include filename="$(find sara_description)/urdf/linear_actuator_v1/torso.gazebo.xacro" />
+           <xacro:include filename="$(find sara_description)/urdf/torso_v1/torso.gazebo.xacro" />
            <xacro:sara_torso_gazebo_v1/>
        </xacro:if>
 
@@ -11,7 +11,7 @@
             <parent link="${parent}_link"/>
             <child link="actuator_link"/>
             <xacro:insert_block name="origin"/>
-            <limit effort="1000.0" lower="0" upper="0.675" velocity="1"/>
+            <limit effort="1000.0" lower="0" upper="0.675" velocity="0.02"/>
             <axis xyz="0 0 1" />
     </joint>
 

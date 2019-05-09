@@ -153,56 +153,56 @@
      </joint>
 
      <link name="${prefix}forearm_lower_link">
-       <visual>
-         <geometry>
-           <mesh filename="package://sara_description/meshes/avant_bras.STL" scale="0.001 0.001 0.001"/>
-         </geometry>
-         <origin xyz="0 0 0" rpy="0 0 0" />
-           <material name="black">
-             <color rgba="0.12 0.12 0.12 1"/>
-           </material>
-       </visual>
-       <collision>
-         <geometry>
-           <mesh filename="package://sara_description/meshes/avant_bras.STL" scale="0.001 0.001 0.001"/>
-         </geometry>
-           <origin xyz="0 0 0" rpy="0 0 0"/>
-       </collision>
-       <inertial>
-         <mass value="0.1177" />
-         <origin xyz="0.0 -0.00000184 -0.03625492" rpy="0 0 0" />
-         <inertia ixx = "0.54274952" ixy = "0.0" ixz = "0.0"
-                  iyy = "1.03078569" iyz = "0.0"
-                  izz = "0.00010905" />
-       </inertial>
+        <visual>
+          <geometry>
+            <mesh filename="package://sara_description/meshes/coude.STL" scale="0.001 0.001 0.001"/>
+          </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="black">
+              <color rgba="0.12 0.12 0.12 1"/>
+            </material>
+        </visual>
+        <collision>
+          <geometry>
+            <mesh filename="package://sara_description/meshes/coude.STL" scale="0.001 0.001 0.001"/>
+          </geometry>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.48300045" />
+          <origin xyz="0.00000207 0.03922132 -0.01628605" rpy="0 0 0"/>
+          <inertia ixx = "0.00036109" ixy = "0.0" ixz = "-0.00000002"
+                   iyy = "0.00029872" iyz = "0.00001701"
+                   izz = "0.00055069" />
+        </inertial>
      </link>
 
      <joint name="${prefix}wrist_joint" type="fixed">
        <parent link="${prefix}forearm_lower_link"/>
        <child link="${prefix}wrist_upper_link"/>
        <limit effort="10000.0" lower="-3.1416" upper="3.1416" velocity="1"/>
-       <origin xyz="0 0 -0.05124" rpy="1.5708 -1.5708 0" />
+       <origin xyz="0 0 0" rpy="1.5708 -1.5708 0" />
        <axis xyz="0 1 0" />
      </joint>
 
      <link name="${prefix}wrist_upper_link">
        <visual>
          <geometry>
-           <mesh filename="package://sara_description/meshes/poignet_haut.STL" scale="0.001 0.001 0.001"/>
+           <mesh filename="package://sara_description/meshes/saraRightArm_wrist1.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <origin xyz="0 0 0" rpy="0 0 3.141592"/>
          <material name="black">
            <color rgba="0.12 0.12 0.12 1"/>
          </material>
        </visual>
        <collision>
          <geometry>
-           <mesh filename="package://sara_description/meshes/poignet_haut.STL" scale="0.001 0.001 0.001"/>
+           <mesh filename="package://sara_description/meshes/saraRightArm_wrist1.STL" scale="0.001 0.001 0.001"/>
          </geometry>
          <origin xyz="0 0 0" rpy="0 0 0"/>
        </collision>
        <inertial>
-         <mass value="0.1956991" />
+         <mass value="0.3956991" />
          <origin xyz="-0.03893593 0.00017228 -0.00000284" rpy="0 0 0"/>
          <inertia ixx = "0.00007035" ixy = "-0.00000150" ixz = "0.0"
                   iyy = "0.00011510" iyz = "0.0"
@@ -215,28 +215,28 @@
        <child link="${prefix}wrist_lower_link"/>
        <dynamics damping="0.1"/>
        <limit effort="10000.0" lower="-1.5" upper="1.5" velocity="1"/>
-       <origin xyz="-0.0606 0 0" rpy="1.5708 -1.5708 0" />
+       <origin xyz="-0.17755 0 0" rpy="0 0 1.5708" />
        <axis xyz="0 0 1" />
      </joint>
 
      <link name="${prefix}wrist_lower_link">
        <visual>
          <geometry>
-           <mesh filename="package://sara_description/meshes/poignet_bas.STL" scale="0.001 0.001 0.001"/>
+           <mesh filename="package://sara_description/meshes/saraRightArm_wrist2.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0 0 0" rpy=" 0 0 0"/>
+         <origin xyz="0.0 -0.039925 0.0" rpy=" 0 1.5708 0"/>
          <material name="black">
            <color rgba="0.12 0.12 0.12 1"/>
          </material>
        </visual>
        <collision>
          <geometry>
-           <mesh filename="package://sara_description/meshes/poignet_bas.STL" scale="0.001 0.001 0.001"/>
+           <mesh filename="package://sara_description/meshes/saraRightArm_wrist2.STL" scale="0.001 0.001 0.001"/>
          </geometry>
          <origin xyz="0 0 0" rpy="0 0 0"/>
        </collision>
        <inertial>
-         <mass value="0.18747684" />
+         <mass value="0.28747684" />
          <origin xyz="0.00001243 0.05721169 0.0" rpy=" 0 0 0"/>
          <inertia ixx = "0.00015391" ixy = "-0.00000060" ixz = "0.0"
                   iyy = "0.00006260" iyz = "0.0"
@@ -249,7 +249,7 @@
        <child link="${prefix}socket_link"/>
        <dynamics damping="0.1"/>
        <limit effort="10000.0" lower="-1.5" upper="1.5" velocity="1"/>
-       <origin xyz="0 0.084375 0" rpy="1.5708 0 0" />
+       <origin xyz="0 0.027475 0" rpy="1.5708 0 0" />
        <axis xyz="1 0 0" />
      </joint>
 
@@ -270,7 +270,7 @@
          <origin xyz="0 0 0" rpy="0 0 0"/>
        </collision>
        <inertial>
-         <mass value="0.02796" />
+         <mass value="1.82796" />
          <origin xyz="0.0 0.0 -0.01570460" rpy="0 0 0"/>
          <inertia ixx = "0.00000889" ixy = "0.0" ixz = "0.0"
                   iyy= "0.00002569" iyz = "0.0"
@@ -284,7 +284,7 @@
        <child link="${prefix}_effector"/>
        <dynamics damping="0.1"/>
        <limit effort="10000.0" lower="-1.49" upper="1.49" velocity="1"/>
-       <origin xyz="0 0 -0.0360875" rpy="0 3.14 1.570796" />
+       <origin xyz="0 0 -0.0360875" rpy="0 3.14 0.0" />
         <axis xyz="0 1 0" />
      </joint>
 

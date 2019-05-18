@@ -13,7 +13,7 @@
         <joint name="head_pitch_joint" type="revolute">
             <parent link="${parent}_link"/>
             <child link="head_link"/>
-            <limit effort="1000.0" lower="-0.8" upper="0.8" velocity="0.5"/>
+            <limit effort="1000.0" lower="-0.9" upper="0.9" velocity="0.5"/>
             <xacro:insert_block name="origin"/>
             <axis xyz="0 0 1" />
         </joint>

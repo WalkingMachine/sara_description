@@ -18,7 +18,7 @@
         <link name="actuator_link">
 
             <inertial>
-      <origin rpy="0 0 0" xyz="-0.0013 -0.0009 0.2935" />
+      <origin rpy="0 0 0" xyz="-0.0013 -0.0009 0.3935" />
       <mass value="10.7796" />
       <inertia ixx="0.3354" ixy="0.0" ixz="-0.0162" iyy="0.3354" iyz="-0.0006" izz="0.0954" />
     </inertial>

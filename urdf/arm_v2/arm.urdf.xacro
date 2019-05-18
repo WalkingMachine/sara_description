@@ -155,7 +155,7 @@
      <link name="${prefix}forearm_lower_link">
         <visual>
           <geometry>
-            <mesh filename="package://sara_description/meshes/coude.STL" scale="0.001 0.001 0.001"/>
+            <mesh filename="package://sara_description/meshes/coude.STL" scale="0.00001 0.00001 0.00001"/>
           </geometry>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <material name="black">
@@ -188,18 +188,18 @@
      <link name="${prefix}wrist_upper_link">
        <visual>
          <geometry>
-           <mesh filename="package://sara_description/meshes/saraRightArm_wrist1.STL" scale="0.001 0.001 0.001"/>
+           <mesh filename="package://sara_description/meshes/WRA-01.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0 0 0" rpy="0 0 3.141592"/>
+         <origin xyz="0 0 0" rpy="-1.5708 0 3.141592"/>
          <material name="black">
            <color rgba="0.12 0.12 0.12 1"/>
          </material>
        </visual>
        <collision>
          <geometry>
-           <mesh filename="package://sara_description/meshes/saraRightArm_wrist1.STL" scale="0.001 0.001 0.001"/>
+           <mesh filename="package://sara_description/meshes/WRA-01.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <origin xyz="0 0 0" rpy="-1.5708 0 3.141592"/>
        </collision>
        <inertial>
          <mass value="0.3956991" />
@@ -215,25 +215,25 @@
        <child link="${prefix}wrist_lower_link"/>
        <dynamics damping="0.1"/>
        <limit effort="10000.0" lower="-1.5" upper="1.5" velocity="1"/>
-       <origin xyz="-0.17755 0 0" rpy="0 0 1.5708" />
+       <origin xyz="-0.10795 0 0" rpy="0 1.5708 1.5708" />
        <axis xyz="0 0 1" />
      </joint>
 
      <link name="${prefix}wrist_lower_link">
        <visual>
          <geometry>
-           <mesh filename="package://sara_description/meshes/saraRightArm_wrist2.STL" scale="0.001 0.001 0.001"/>
+           <mesh filename="package://sara_description/meshes/WRA-02.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0.0 -0.039925 0.0" rpy=" 0 1.5708 0"/>
+         <origin xyz="0.0 0 0.0" rpy=" 0 1.5708 0"/>
          <material name="black">
            <color rgba="0.12 0.12 0.12 1"/>
          </material>
        </visual>
        <collision>
          <geometry>
-           <mesh filename="package://sara_description/meshes/saraRightArm_wrist2.STL" scale="0.001 0.001 0.001"/>
+           <mesh filename="package://sara_description/meshes/WRA-02.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <origin xyz="0 0 0" rpy=" 0 1.5708 0"/>
        </collision>
        <inertial>
          <mass value="0.28747684" />
@@ -248,26 +248,26 @@
        <parent link="${prefix}wrist_lower_link"/>
        <child link="${prefix}socket_link"/>
        <dynamics damping="0.1"/>
-       <limit effort="10000.0" lower="-1.5" upper="1.5" velocity="1"/>
-       <origin xyz="0 0.027475 0" rpy="1.5708 0 0" />
+       <limit effort="10000.0" lower="-1.45" upper="1.45" velocity="1"/>
+       <origin xyz="0 0.0635 0" rpy="1.5708 0 0" />
        <axis xyz="1 0 0" />
      </joint>
 
      <link name="${prefix}socket_link">
        <visual>
          <geometry>
-           <mesh filename="package://sara_description/meshes/attache_pince.STL" scale="0.001 0.001 0.001"/>
+           <mesh filename="package://sara_description/meshes/WRA-03.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <origin xyz="0 0 0" rpy="0 1.5708 -1.5708"/>
          <material name="black">
            <color rgba="0.12 0.12 0.12 1"/>
          </material>
        </visual>
        <collision>
          <geometry>
-           <mesh filename="package://sara_description/meshes/attache_pince.STL" scale="0.001 0.001 0.001"/>
+           <mesh filename="package://sara_description/meshes/WRA-03.STL" scale="0.001 0.001 0.001"/>
          </geometry>
-         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <origin xyz="0 0 0" rpy="0 1.5708 -1.5708"/>
        </collision>
        <inertial>
          <mass value="1.82796" />
@@ -284,7 +284,7 @@
        <child link="${prefix}_effector"/>
        <dynamics damping="0.1"/>
        <limit effort="10000.0" lower="-1.49" upper="1.49" velocity="1"/>
-       <origin xyz="0 0 -0.0360875" rpy="0 3.14 0.0" />
+       <origin xyz="0 0 -0.057" rpy="0 3.14 1.5708" />
         <axis xyz="0 1 0" />
      </joint>
 

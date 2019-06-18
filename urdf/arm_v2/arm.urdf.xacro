@@ -13,7 +13,7 @@
        <parent link="${parent}_link"/>
        <child link="${prefix}clavicular_link"/>
        <dynamics damping="0.1"/>
-       <limit effort="10000.0" lower="-1.57" upper="1.5" velocity="0.57"/>
+       <limit effort="10000.0" lower="-0.3" upper="1.5" velocity="0.57"/>
        <xacro:insert_block name="origin"/>
        <axis xyz="0 0 1" />
      </joint>
@@ -293,7 +293,7 @@
        <child link="${prefix}_dummy"/>
        <dynamics damping="0.1"/>
        <limit effort="10000.0" lower="-1.49" upper="1.49" velocity="1"/>
-       <origin xyz="0 0 -0.2" rpy="1.57 1.57 0" />
+       <origin xyz="0 0 -0.24" rpy="1.57 1.57 3.141592" />
         <axis xyz="0 1 0" />
      </joint>
 

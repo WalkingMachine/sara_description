@@ -1,10 +1,29 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro">
-   <xacro:macro name="sara_gazebo">
+<robot>
       <gazebo>
+         <static>false</static>
+
          <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/sara_simulation</robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+            <legacyModeNS>false</legacyModeNS>
+         </plugin>
+
+
+         <plugin name="ridgeback_ros_force_based_move" filename="libridgeback_ros_force_based_move.so">
             <robotNamespace>/</robotNamespace>
+            <commandTopic>cmd_vel</commandTopic>
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            <odometryRate>25.0</odometryRate>
+            <robotBaseFrame>base_link</robotBaseFrame>
+            <cmdVelTimeOut>0.25</cmdVelTimeOut>
+            <!-- Don't publish a transform: the controller does it. -->
+            <publishOdometryTf>0</publishOdometryTf>
+            <yaw_velocity_p_gain>500.0</yaw_velocity_p_gain>
+            <x_velocity_p_gain>10000.0</x_velocity_p_gain>
+            <y_velocity_p_gain>10000.0</y_velocity_p_gain>
          </plugin>
       </gazebo>
-   </xacro:macro>
+
 </robot>

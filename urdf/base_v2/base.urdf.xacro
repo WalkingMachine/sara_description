@@ -1,10 +1,17 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" >
-  <xacro:macro name="sara_base" params="sim">
+  <xacro:macro name="sara_base" params="parent">
       <xacro:include filename="$(find sara_description)/urdf/base_v2/base.gazebo.xacro"/>
       <xacro:property name="PI" value="3.1415926535897931"/>
 
-      <link name="base_link">
+
+      <joint name="base_to_chassis" type="fixed">
+          <parent link="${parent}_link"/>
+          <child link="chassis"/>
+      </joint>
+
+
+      <link name="chassis">
       <inertial>
           <mass value="125.0" />
           <origin xyz="0 0 0" />
@@ -27,6 +34,7 @@
          </geometry>
          <origin xyz="0.0 0 0" rpy="${-PI/2} 0 ${PI/2}"/>
       </collision>
+
     </link>
 
     </xacro:macro>

@@ -1,12 +1,10 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="sara_linear_actuator_v1" params="prefix">
-
-    <gazebo reference="${prefix}actuator_link">
-        <turnGravityOff>false</turnGravityOff>
-      <selfCollide>true</selfCollide>
-    </gazebo>
-
-  </xacro:macro>
+    <xacro:macro name="sara_linear_actuator_gazebo" params="prefix">
+        <gazebo reference="${prefix}actuator_link">
+            <turnGravityOff>false</turnGravityOff>
+            <selfCollide>true</selfCollide>
+        </gazebo>
+    </xacro:macro>
 </robot>

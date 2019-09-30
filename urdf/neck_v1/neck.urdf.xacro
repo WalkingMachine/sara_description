@@ -1,46 +1,45 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro" >
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-   <xacro:macro name="sara_neck_v1" params="parent *origin sim">
-       <xacro:if value="${sim}">
-           <xacro:include filename="$(find sara_description)/urdf/neck_v1/neck.gazebo.xacro" />
-           <xacro:sara_neck_gazebo_v1/>
-       </xacro:if>
-       <xacro:include filename="$(find sara_description)/urdf/neck_v1/neck.transmission.xacro" />
-       <xacro:sara_head_yaw_transmission_v1/>
+    <xacro:macro name="sara_neck" params="parent *origin sim">
+        <xacro:if value="${sim}">
+            <xacro:include filename="$(find sara_description)/urdf/neck_v1/neck.gazebo.xacro"/>
+            <xacro:sara_neck_gazebo/>
+        </xacro:if>
 
-       <joint name="head_yaw_joint" type="revolute">
-           <parent link="${parent}_link"/>
-           <child link="neck_link"/>
-           <limit effort="1000.0" lower="-1.5" upper="1.5" velocity="0.5"/>
-           <xacro:insert_block name="origin"/>
-           <axis xyz="0 0 1"/>
-       </joint>
 
-       <link name="neck_link">
-           <visual>
-               <geometry>
-                   <mesh filename="package://sara_description/meshes/couV2.STL" scale="0.001 0.001 0.001"/>
-               </geometry>
-               <origin xyz="0 0 0" rpy="1.5708 0 1.5708"/>
-               <material name="blue">
-                   <color rgba="0.06 0.06 1 1"/>
-               </material>
-             </visual>
-             <collision>
+        <joint name="head_yaw_joint" type="revolute">
+            <parent link="${parent}_link"/>
+            <child link="neck_link"/>
+            <limit effort="1000.0" lower="-1.5" upper="1.5" velocity="0.5"/>
+            <xacro:insert_block name="origin"/>
+            <axis xyz="0 0 1"/>
+        </joint>
+
+        <link name="neck_link">
+            <visual>
                 <geometry>
-                   <mesh filename="package://sara_description/meshes/couV2.STL" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://sara_description/meshes/couV2.STL" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="1.5708 0 1.5708"/>
-             </collision>
-             <inertial>
+                <material name="blue">
+                    <color rgba="0.06 0.06 1 1"/>
+                </material>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/couV2.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="1.5708 0 1.5708"/>
+            </collision>
+            <inertial>
                 <mass value="2"/>
                 <origin xyz="0 0 0" rpy="1.5708 0 1.5708"/>
-                <inertia ixx = "0.00438238" ixy = "0.0" ixz = "0.0"
-                         iyy = "0.0040183" iyz = "0.0"
-                         izz = "0.00585293"/>
-             </inertial>
-       </link>
+                <inertia ixx="0.00438238" ixy="0.0" ixz="0.0"
+                         iyy="0.0040183" iyz="0.0"
+                         izz="0.00585293"/>
+            </inertial>
+        </link>
 
-   </xacro:macro>
+    </xacro:macro>
 </robot>

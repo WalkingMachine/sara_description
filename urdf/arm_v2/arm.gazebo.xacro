@@ -15,12 +15,12 @@
 
     <gazebo reference="${prefix}forearm_upper_link">
       <turnGravityOff>false</turnGravityOff>
-      <selfCollide>false</selfCollide>
+      <selfCollide>true</selfCollide>
     </gazebo>
 
     <gazebo reference="${prefix}upper_arm_lower_link">
       <turnGravityOff>false</turnGravityOff>
-      <selfCollide>false</selfCollide>
+      <selfCollide>true</selfCollide>
     </gazebo>
 
     <gazebo reference="${prefix}forearm_lower_link">
@@ -30,7 +30,7 @@
 
     <gazebo reference="${prefix}wrist_upper_link">
       <turnGravityOff>false</turnGravityOff>
-      <selfCollide>false</selfCollide>
+      <selfCollide>true</selfCollide>
     </gazebo>
 
     <gazebo reference="${prefix}wrist_lower_link">

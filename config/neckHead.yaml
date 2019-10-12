@@ -1,7 +1,0 @@
-dependent_joints:
-  neck_head_joint:
-    parent: head_dynamixel_joint
-    factor: -0.457142857
-
-zeros:
-  head_dynamixel_joint: 0

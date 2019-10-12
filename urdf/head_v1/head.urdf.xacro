@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
 
     <xacro:macro name="sara_head" params="parent *origin sim">
 
         <xacro:if value="${sim}">
             <xacro:include filename="$(find sara_description)/urdf/head_v1/head.gazebo.xacro"/>
             <xacro:sara_head_gazebo/>
+            <xacro:include filename="$(find sara_description)/urdf/head_v1/head.transmission.xacro" />
         </xacro:if>
 
         <joint name="head_pitch_joint" type="revolute">
@@ -26,12 +27,6 @@
                     <color rgba="0.06 0.06 1 1"/>
                 </material>
             </visual>
-            <collision>
-                <geometry>
-                    <mesh filename="package://sara_description/meshes/tete.STL" scale="0.001 0.001 0.001"/>
-                </geometry>
-                <origin xyz="0 0 0" rpy="1.5708 -1.5708 1.5708"/>
-            </collision>
             <inertial>
                 <mass value="2.60401968"/>
                 <origin xyz="0 0 0" rpy="1.5708 0 1.5708"/>

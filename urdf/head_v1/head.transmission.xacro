@@ -1,16 +1,12 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-   <xacro:macro name="sara_head_pitch_transmission_v1">
-
-      <transmission name="head_pitch_trans" type="SimpleTransmission">
-         <type>transmission_interface/SimpleTransmission</type>
-         <actuator name="head_pitch_motor">
+    <transmission name="head_pitch_trans" type="SimpleTransmission">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="head_pitch_motor">
             <mechanicalReduction>1</mechanicalReduction>
-         </actuator>
-         <joint name="head_pitch_joint">
-            <hardwareInterface>PositionJointInterface</hardwareInterface>
-         </joint>
-      </transmission>
-
-   </xacro:macro>
+        </actuator>
+        <joint name="head_pitch_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
 </robot>

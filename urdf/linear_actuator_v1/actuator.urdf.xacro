@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
 
     <xacro:macro name="sara_linear_actuator" params="prefix parent *origin sim">
         <xacro:if value="${sim}">
@@ -7,7 +7,9 @@
             <xacro:sara_linear_actuator_gazebo prefix="${prefix}"/>
         </xacro:if>
 
-        <joint name="${parent}_actuator_joint" type="prismatic">
+        <xacro:include filename="$(find sara_description)/urdf/linear_actuator_v1/actuator.transmission.xacro" />
+
+        <joint name="${prefix}_actuator_joint" type="prismatic">
             <parent link="${parent}_link"/>
             <child link="actuator_link"/>
             <xacro:insert_block name="origin"/>

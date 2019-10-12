@@ -1,0 +1,73 @@
+# Publish all joint states -----------------------------------
+joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+# Arm Trajectory Controllers ---------------------------------------
+right_arm_trajectory_controller:
+    type: effort_controllers/JointTrajectoryController
+    allow_partial_joints_goal: true
+    joints:
+        - right_shoulder_roll_joint
+        - right_shoulder_pitch_joint
+        - right_shoulder_yaw_joint
+        - right_elbow_pitch_joint
+        - right_elbow_yaw_joint
+        - right_wrist_pitch_joint
+        - right_wrist_roll_joint
+        - front_actuator_joint
+    gains:
+        right_shoulder_roll_joint: {p: 400.0, i: 0.01, d: 15.0}
+        right_shoulder_pitch_joint: {p: 400.0, i: 0.01, d: 15.0}
+        right_shoulder_yaw_joint: {p: 100.0, i: 0.01, d: 1.0}
+        right_elbow_pitch_joint: {p: 100.0, i: 0.01, d: 1.0}
+        right_elbow_yaw_joint: {p: 20.0, i: 0.01, d: 0.5}
+        right_wrist_pitch_joint: {p: 20.0, i: 0.01, d: 0.1}
+        right_wrist_roll_joint: {p: 20.0, i: 0.01, d: 0.1}
+        front_actuator_joint: {p: 40000.0, i: 1.0, d: 1.0}
+
+# Arm Velocity Controllers ---------------------------------------
+right_arm_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joints:
+        - right_shoulder_roll_joint
+        - right_shoulder_pitch_joint
+        - right_shoulder_yaw_joint
+        - right_elbow_pitch_joint
+        - right_elbow_yaw_joint
+        - right_wrist_pitch_joint
+        - right_wrist_roll_joint
+        - front_actuator_joint
+    gains:
+        right_shoulder_roll_joint: {p: 400.0, i: 0.01, d: 15.0}
+        right_shoulder_pitch_joint: {p: 400.0, i: 0.01, d: 15.0}
+        right_shoulder_yaw_joint: {p: 100.0, i: 0.01, d: 1.0}
+        right_elbow_pitch_joint: {p: 100.0, i: 0.01, d: 1.0}
+        right_elbow_yaw_joint: {p: 20.0, i: 0.01, d: 0.5}
+        right_wrist_pitch_joint: {p: 20.0, i: 0.01, d: 0.1}
+        right_wrist_roll_joint: {p: 20.0, i: 0.01, d: 0.1}
+        front_actuator_joint: {p: 40000.0, i: 1.0, d: 1.0}
+
+# Head Pitch Controllers ---------------------------------------
+head_pitch_controller:
+    type: effort_controllers/JointPositionController
+    joint: head_pitch_joint
+    pid: {p: 2.0,  d: 0.4, i: 0.2, i_clamp: 1}
+    publish_rate: 50               # default: 50
+
+# Head Yaw Controllers ---------------------------------------
+head_yaw_controller:
+    type: effort_controllers/JointPositionController
+    joint: head_yaw_joint
+    pid: {p: 0.2,  d: 0.1, i: 0.0, i_clamp: 1}
+    publish_rate: 50               # default: 50
+
+# Gripper Action Controllers ---------------------------------------
+right_gripper_action_controller:
+    type: position_controllers/GripperActionController
+    joint: gripper_finger1_joint
+    action_monitor_rate: 100
+    goal_tolerance: 0.005
+    stall_timeout: 0.5
+    publish_rate: 50               # default: 50
+    pid: {p: 0.1,  d: 0.1, i: 0.0, i_clamp: 1}

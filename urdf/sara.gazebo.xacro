@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
-<robot>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+   <xacro:macro name="sara_gazebo">
       <gazebo>
          <static>false</static>
 
          <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/sara_simulation</robotNamespace>
+            <robotNamespace>/</robotNamespace>
+            <controlPeriod>0.002</controlPeriod>
             <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-            <legacyModeNS>false</legacyModeNS>
+            <legacyModeNS>true</legacyModeNS>
          </plugin>
 
 
@@ -25,5 +27,5 @@
             <y_velocity_p_gain>10000.0</y_velocity_p_gain>
          </plugin>
       </gazebo>
-
+   </xacro:macro>
 </robot>

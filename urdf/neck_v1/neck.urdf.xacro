@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
 
     <xacro:macro name="sara_neck" params="parent *origin sim">
         <xacro:if value="${sim}">
             <xacro:include filename="$(find sara_description)/urdf/neck_v1/neck.gazebo.xacro"/>
             <xacro:sara_neck_gazebo/>
+            <xacro:include filename="$(find sara_description)/urdf/neck_v1/neck.transmission.xacro" />
         </xacro:if>
 
 
@@ -26,12 +27,6 @@
                     <color rgba="0.06 0.06 1 1"/>
                 </material>
             </visual>
-            <collision>
-                <geometry>
-                    <mesh filename="package://sara_description/meshes/couV2.STL" scale="0.001 0.001 0.001"/>
-                </geometry>
-                <origin xyz="0 0 0" rpy="1.5708 0 1.5708"/>
-            </collision>
             <inertial>
                 <mass value="2"/>
                 <origin xyz="0 0 0" rpy="1.5708 0 1.5708"/>

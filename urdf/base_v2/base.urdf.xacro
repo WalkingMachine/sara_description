@@ -7,11 +7,12 @@
 
       <joint name="base_to_chassis" type="fixed">
           <parent link="${parent}_link"/>
-          <child link="chassis"/>
+          <child link="chassis_link"/>
+          <origin xyz="0 0 0" />
       </joint>
 
 
-      <link name="chassis">
+      <link name="chassis_link">
       <inertial>
           <mass value="125.0" />
           <origin xyz="0 0 0" />

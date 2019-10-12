@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-   <gazebo reference="chassis">
+   <gazebo reference="chassis_link">
       <material>Gazebo/DarkGrey</material>
       <mu1>0.0</mu1>
       <mu2>0.0</mu2>
-
+      <turnGravityOff>false</turnGravityOff>
+      <selfCollide>true</selfCollide>
    </gazebo>
 </robot>

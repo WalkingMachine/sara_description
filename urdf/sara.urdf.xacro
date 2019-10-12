@@ -3,6 +3,8 @@
     <xacro:property name="PI" value="3.1415926535897931" />
     <xacro:arg name="sim" default="true"/>
     <xacro:property name="sim" value="$(arg sim)"/>
+    <xacro:arg name="ns" default="/"/>
+    <xacro:property name="ns" value="$(arg ns)"/>
 
     <xacro:include filename="$(find sara_description)/urdf/linear_actuator_v1/actuator.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/torso_v1/torso.urdf.xacro"/>
@@ -12,15 +14,27 @@
     <xacro:include filename="$(find sara_description)/urdf/arm_v2/arm.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/base_v2/base.urdf.xacro"/>
     <xacro:include filename="$(find sara_description)/urdf/hokuyo/hokuyo.urdf.xacro"/>
+    <xacro:include filename="$(find sara_description)/robotiq_2f_85/urdf/robotiq_2f_85_macro.xacro" />
+
 
     <link name="base_link"></link>
 
     <!-- Base -->
     <xacro:sara_base parent="base"/>
 
+    <!-- hokuyo -->
+    <xacro:hokuyo prefix="front_" parent="chassis" sim="${sim}">
+        <origin xyz="0.2516879 0 -0.005" rpy="0 0 0" />
+    </xacro:hokuyo>
+
+    <!-- Linear Actuator -->
+    <xacro:sara_linear_actuator prefix="front" parent="chassis" sim="${sim}">
+        <origin xyz="0 0 0.1" rpy="0 0 0" />
+    </xacro:sara_linear_actuator>
+
     <!-- Torso -->
-    <xacro:sara_torso parent="base" sim="${sim}">
-        <origin xyz="0.1999806 0 1.189" rpy="0 0 0" />
+    <xacro:sara_torso parent="actuator" sim="${sim}">
+        <origin xyz="0.1999806 0 0.5256" rpy="0 0 0" />
     </xacro:sara_torso>
 
     <!-- Neck -->
@@ -30,7 +44,7 @@
 
     <!-- Head -->
     <xacro:sara_head parent="neck" sim="${sim}">
-        <origin xyz="0 0 0.0927" rpy="-1.57 0 0"/>
+        <origin xyz="0 0 0.0927" rpy="${-PI/2} 0 0"/>
     </xacro:sara_head>
 
     <!-- Head Xtion -->
@@ -40,10 +54,22 @@
 
     <!-- Arm -->
     <xacro:sara_arm prefix="right_" parent="torso" sim="${sim}">
-        <origin xyz="0 -0.1437625 0.01166" rpy="0 -1.57 0"/>
+        <origin xyz="0 -0.1437625 0.01166" rpy="0 ${-PI/2} 0"/>
     </xacro:sara_arm>
+
+    <!-- Gripper -->
+    <xacro:load_gripper parent="right_socket_link">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </xacro:load_gripper>
+    <!-- Gripper physic -->
+    <xacro:if value="${sim}">
+        <xacro:include filename="$(find sara_description)/robotiq_2f_85/urdf/robotiq_2f_85_transmission_macro.xacro" />
+        <xacro:load_gazebo_gripper_transmissions/>
+    </xacro:if>
 
     <!-- Bring in simulation data for Gazebo. -->
     <xacro:include filename="$(find sara_description)/urdf/sara.gazebo.xacro" />
+    <xacro:sara_gazebo/>
+
 
 </robot>

@@ -1,15 +1,13 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find robotiq_description)/urdf/robotiq_85_gripper.urdf.xacro"/>
-
     <xacro:macro name="sara_arm" params="prefix parent *origin sim">
         <xacro:if value="${sim}">
             <xacro:include filename="$(find sara_description)/urdf/arm_v2/arm.gazebo.xacro"/>
             <xacro:sara_arm_gazebo_v2 prefix="${prefix}"/>
             <xacro:include filename="$(find sara_description)/urdf/arm_v2/arm.transmission.xacro" />
         </xacro:if>
-<!---->
+
 
         <joint name="${prefix}shoulder_roll_joint" type="revolute">
             <parent link="${parent}_link"/>

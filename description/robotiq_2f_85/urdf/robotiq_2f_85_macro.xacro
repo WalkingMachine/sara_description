@@ -16,12 +16,12 @@
         <link name="gripper_base_link">
             <visual>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/visual/robotiq_85_base_link.dae"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/visual/robotiq_85_base_link.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/collision/robotiq_85_base_link.stl"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/collision/robotiq_85_base_link.stl"/>
                 </geometry>
             </collision>
             <inertial>
@@ -61,12 +61,12 @@
         <link name="gripper_finger1_knuckle_link">
             <visual>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/visual/robotiq_85_knuckle_link.dae"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/visual/robotiq_85_knuckle_link.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/collision/robotiq_85_knuckle_link.stl"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/collision/robotiq_85_knuckle_link.stl"/>
                 </geometry>
             </collision>
             <inertial>
@@ -89,12 +89,12 @@
         <link name="gripper_finger2_knuckle_link">
             <visual>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/visual/robotiq_85_knuckle_link.dae"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/visual/robotiq_85_knuckle_link.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/collision/robotiq_85_knuckle_link.stl"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/collision/robotiq_85_knuckle_link.stl"/>
                 </geometry>
             </collision>
             <inertial>
@@ -129,12 +129,12 @@
         <link name="gripper_finger1_finger_link">
             <visual>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/visual/robotiq_85_finger_link.dae"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/visual/robotiq_85_finger_link.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/collision/robotiq_85_finger_link.stl"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/collision/robotiq_85_finger_link.stl"/>
                 </geometry>
             </collision>
             <inertial>
@@ -157,12 +157,12 @@
         <link name="gripper_finger2_finger_link">
             <visual>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/visual/robotiq_85_finger_link.dae"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/visual/robotiq_85_finger_link.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/collision/robotiq_85_finger_link.stl"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/collision/robotiq_85_finger_link.stl"/>
                 </geometry>
             </collision>
             <inertial>
@@ -203,12 +203,12 @@
         <link name="gripper_finger1_inner_knuckle_link">
             <visual>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/visual/robotiq_85_inner_knuckle_link.dae"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/visual/robotiq_85_inner_knuckle_link.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/collision/robotiq_85_inner_knuckle_link.stl"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/collision/robotiq_85_inner_knuckle_link.stl"/>
                 </geometry>
             </collision>
             <inertial>
@@ -231,12 +231,12 @@
         <link name="gripper_finger2_inner_knuckle_link">
             <visual>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/visual/robotiq_85_inner_knuckle_link.dae"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/visual/robotiq_85_inner_knuckle_link.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/collision/robotiq_85_inner_knuckle_link.stl"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/collision/robotiq_85_inner_knuckle_link.stl"/>
                 </geometry>
             </collision>
             <inertial>
@@ -278,12 +278,12 @@
         <link name="gripper_finger1_finger_tip_link">
             <visual>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/visual/robotiq_85_finger_tip_link.dae"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/visual/robotiq_85_finger_tip_link.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/collision/robotiq_85_finger_tip_link.stl"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/collision/robotiq_85_finger_tip_link.stl"/>
                 </geometry>
             </collision>
             <inertial>
@@ -306,12 +306,12 @@
         <link name="gripper_finger2_finger_tip_link">
             <visual>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/visual/robotiq_85_finger_tip_link.dae"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/visual/robotiq_85_finger_tip_link.dae"/>
                 </geometry>
             </visual>
             <collision>
                 <geometry>
-                    <mesh filename="package://kortex_description/grippers/robotiq_2f_85/meshes/collision/robotiq_85_finger_tip_link.stl"/>
+                    <mesh filename="package://sara_description/robotiq_2f_85/meshes/collision/robotiq_85_finger_tip_link.stl"/>
                 </geometry>
             </collision>
             <inertial>

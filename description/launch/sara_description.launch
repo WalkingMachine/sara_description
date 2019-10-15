@@ -23,10 +23,10 @@
     <!-- load the controllers -->
     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
           output="screen" ns="$(arg ns)" args="  joint_state_controller
-                                                        right_arm_trajectory_controller
-                                                        head_pitch_controller
-                                                        head_yaw_controller
-                                                        right_gripper_action_controller"/>
+                                                        sara_arm_trajectory_controller
+                                                        sara_head_pitch_controller
+                                                        sara_head_yaw_controller
+                                                        sara_gripper_action_controller"/>
 
     <!-- publish all the frames to TF -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" ns="$(arg ns)"/>

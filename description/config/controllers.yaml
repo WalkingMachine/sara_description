@@ -4,7 +4,7 @@ joint_state_controller:
     publish_rate: 50
 
 # Arm Trajectory Controllers ---------------------------------------
-right_arm_trajectory_controller:
+sara_arm_trajectory_controller:
     type: effort_controllers/JointTrajectoryController
     allow_partial_joints_goal: true
     joints:
@@ -27,7 +27,7 @@ right_arm_trajectory_controller:
         front_actuator_joint: {p: 40000.0, i: 1.0, d: 1.0}
 
 # Arm Velocity Controllers ---------------------------------------
-right_arm_velocity_controller:
+sara_arm_velocity_controller:
     type: effort_controllers/JointVelocityController
     joints:
         - right_shoulder_roll_joint
@@ -49,21 +49,21 @@ right_arm_velocity_controller:
         front_actuator_joint: {p: 40000.0, i: 1.0, d: 1.0}
 
 # Head Pitch Controllers ---------------------------------------
-head_pitch_controller:
+sara_head_pitch_controller:
     type: effort_controllers/JointPositionController
     joint: head_pitch_joint
     pid: {p: 2.0,  d: 0.4, i: 0.2, i_clamp: 1}
     publish_rate: 50               # default: 50
 
 # Head Yaw Controllers ---------------------------------------
-head_yaw_controller:
+sara_head_yaw_controller:
     type: effort_controllers/JointPositionController
     joint: head_yaw_joint
     pid: {p: 0.2,  d: 0.1, i: 0.0, i_clamp: 1}
     publish_rate: 50               # default: 50
 
 # Gripper Action Controllers ---------------------------------------
-right_gripper_action_controller:
+sara_gripper_action_controller:
     type: position_controllers/GripperActionController
     joint: gripper_finger1_joint
     action_monitor_rate: 100

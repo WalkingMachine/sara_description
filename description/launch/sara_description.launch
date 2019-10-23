@@ -34,6 +34,7 @@
     <!-- Start gazebo if sim is true -->
     <group  if="$(arg sim)">
         <include file="$(find gazebo_ros)/launch/empty_world.launch">
+            <arg name="use_sim_time" value="true"/>
             <arg name="world_name" value="$(find sara_description)/worlds/house.world"/>
         </include>
 

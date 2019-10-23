@@ -67,6 +67,13 @@
         <xacro:load_gazebo_gripper_transmissions/>
     </xacro:if>
 
+    <joint name="tool_joint" type="fixed">
+        <parent link="right_socket_link"/>
+        <child link="right_tool_link"/>
+        <origin xyz="0.2 0 0" rpy="${PI} 0 0"/>
+    </joint>
+    <link name="right_tool_link"/>
+
     <!-- Bring in simulation data for Gazebo. -->
     <xacro:include filename="$(find sara_description)/urdf/sara.gazebo.xacro" />
     <xacro:sara_gazebo/>

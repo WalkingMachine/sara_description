@@ -17,14 +17,17 @@ sara_arm_trajectory_controller:
         - right_wrist_roll_joint
         - front_actuator_joint
     gains:
-        right_shoulder_roll_joint: {p: 400.0, i: 0.01, d: 15.0}
-        right_shoulder_pitch_joint: {p: 400.0, i: 0.01, d: 15.0}
-        right_shoulder_yaw_joint: {p: 100.0, i: 0.01, d: 1.0}
-        right_elbow_pitch_joint: {p: 100.0, i: 0.01, d: 1.0}
-        right_elbow_yaw_joint: {p: 20.0, i: 0.01, d: 0.5}
-        right_wrist_pitch_joint: {p: 20.0, i: 0.01, d: 0.1}
-        right_wrist_roll_joint: {p: 20.0, i: 0.01, d: 0.1}
-        front_actuator_joint: {p: 40000.0, i: 1.0, d: 1.0}
+        right_shoulder_roll_joint: {p: 4000.0, i: 1, d: 15.0}
+        right_shoulder_pitch_joint: {p: 4000.0, i: 1, d: 15.0}
+        right_shoulder_yaw_joint: {p: 1000.0, i: 1, d: 1.0}
+        right_elbow_pitch_joint: {p: 1000.0, i: 1, d: 1.0}
+        right_elbow_yaw_joint: {p: 200.0, i: 1, d: 0.5}
+        right_wrist_pitch_joint: {p: 200.0, i: 1, d: 0.1}
+        right_wrist_roll_joint: {p: 200.0, i: 1, d: 0.1}
+        front_actuator_joint: {p: 400000.0, i: 1, d: 1.0}
+    constraints:
+        goal_time: 1.0                   # Override default
+        stopped_velocity_tolerance: 1.0 # Override default
 
 # Arm Velocity Controllers ---------------------------------------
 sara_arm_velocity_controller:

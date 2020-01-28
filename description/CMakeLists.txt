@@ -20,6 +20,11 @@ include_directories(
 
 link_directories(${GAZEBO_LIBRARY_DIRS})
 
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS}
+  ${GAZEBO_INCLUDE_DIRS}
+)
 
 find_package(roslaunch)
 
@@ -34,6 +39,15 @@ include_directories(BEFORE ./include/)
 link_directories(${GAZEBO_LIBRARY_DIRS})
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
 
-install(DIRECTORY launch models worlds 
+
+################################################################################
+# Install
+################################################################################
+
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+)
+
+install(DIRECTORY launch models rviz worlds
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )

@@ -18,12 +18,10 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-link_directories(${GAZEBO_LIBRARY_DIRS})
 
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
-  ${GAZEBO_INCLUDE_DIRS}
 )
 
 find_package(roslaunch)
@@ -32,12 +30,6 @@ foreach(dir config launch meshes urdf)
     install(DIRECTORY ${dir}/
             DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
 endforeach(dir)
-
-# Gazebo is compiled with Protobuf 2.6.1 and Kortex with Protobuf 3.5.1
-# The 2.6.1 includes are prepended to the include_directories so the Gazebo plugins we compile here build
-include_directories(BEFORE ./include/)
-link_directories(${GAZEBO_LIBRARY_DIRS})
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
 
 
 ################################################################################
@@ -48,6 +40,6 @@ install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
 
-install(DIRECTORY launch models rviz worlds
+install(DIRECTORY launch models rviz
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )

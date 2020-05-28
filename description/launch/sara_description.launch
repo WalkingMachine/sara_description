@@ -2,10 +2,10 @@
 
 <launch>
     <!-- sim arg -->
-    <arg name="sim" default="false" />
     <arg name="test" default="false" />
     <arg name="gui" default="true" />
     <arg name="ns" default="/" />
+    <arg name="sim" default="false" />
 
     <!--Load the controllers parameters-->
     <rosparam file="$(find sara_description)/config/controllers.yaml" command="load" ns="$(arg ns)" />
@@ -30,25 +30,5 @@
 
     <!-- publish all the frames to TF -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" ns="$(arg ns)"/>
-
-    <!-- Start gazebo if sim is true -->
-    <group  if="$(arg sim)">
-        <include file="$(find gazebo_ros)/launch/empty_world.launch">
-            <arg name="use_sim_time" value="true"/>
-            <arg name="gui" value="false"/>
-            <arg name="world_name" value="$(find sara_description)/worlds/house.world"/>
-        </include>
-
-        <!-- Spawn model -->
-        <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-              args="-urdf -x 0 -y 0 -z 0.3
-                -model sara
-                -param robot_description
-                -J front_actuator_joint 0.5
-                -J right_elbow_pitch_joint 0.7
-                -unpause"/>
-
-    </group>
-
 
 </launch>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" >
+  <xacro:macro name="sara_base" params="parent">
+      <xacro:include filename="$(find sara_description)/urdf/base_v2/base.gazebo.xacro"/>
+      <xacro:property name="PI" value="3.1415926535897931"/>
+
+
+      <joint name="base_to_chassis" type="fixed">
+          <parent link="${parent}_link"/>
+          <child link="chassis_link"/>
+          <origin xyz="0 0 0" />
+      </joint>
+
+
+      <link name="chassis_link">
+      <inertial>
+          <mass value="125.0" />
+          <origin xyz="0 0 0" />
+          <inertia  ixx="1.391" ixy="0.004"  ixz="0.0"
+                    iyy="6.853"  iyz="0.0"
+                    izz="6.125" />
+      </inertial>
+      <visual>
+          <geometry>
+              <mesh filename="package://sara_description/meshes/base.STL" scale="0.001 0.001 0.001"/>
+          </geometry>
+          <origin xyz="0 0 0" rpy="${-PI/2} 0 ${PI/2}" />
+          <material name="darkgrey">
+              <color rgba="0.1 0.1 0.1 1"/>
+          </material>
+      </visual>
+      <collision>
+         <geometry>
+            <mesh filename="package://sara_description/meshes/base.STL" scale="0.001 0.001 0.001"/>
+         </geometry>
+         <origin xyz="0.0 0 0" rpy="${-PI/2} 0 ${PI/2}"/>
+      </collision>
+
+    </link>
+
+    </xacro:macro>
+  </robot>

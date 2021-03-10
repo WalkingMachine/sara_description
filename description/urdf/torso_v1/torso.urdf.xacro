@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+    <xacro:macro name="sara_torso" params="parent *origin sim">
+        <xacro:if value="${sim}">
+            <xacro:include filename="$(find sara_description)/urdf/torso_v1/torso.gazebo.xacro"/>
+            <xacro:sara_torso_gazebo/>
+        </xacro:if>
+
+        <joint name="${parent}_torso_joint" type="fixed">
+            <parent link="${parent}_link"/>
+            <child link="torso_link"/>
+            <xacro:insert_block name="origin"/>
+        </joint>
+
+        <link name="torso_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/torse.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <material name="black">
+                    <color rgba="0.12 0.12 0.12 1"/>
+                </material>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/torse.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </collision>
+            <inertial>
+                <mass value="4.17008957"/>
+                <origin xyz="-0.14427 -0.197233 0" rpy="1.5708 0 1.5708"/>
+                <inertia ixx="0.03994446" ixy="0.00064933" ixz="0.00005666"
+                         iyy="0.04946667" iyz="0.00660833"
+                         izz="0.05202654"/>
+            </inertial>
+        </link>
+
+    </xacro:macro>
+</robot>

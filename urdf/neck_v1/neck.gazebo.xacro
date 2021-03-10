@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro">
-   <xacro:macro name="sara_neck_gazebo_v1">
-      <gazebo reference="neck_link">
-         <turnGravityOff>false</turnGravityOff>
-         <selfCollide>true</selfCollide>
-      </gazebo>
-   </xacro:macro>
-</robot>

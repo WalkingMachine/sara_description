@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+
+<launch>
+    <!-- sim arg -->
+    <arg name="test" default="false" />
+    <arg name="gui" default="true" />
+    <arg name="ns" default="/" />
+    <arg name="sim" default="false" />
+
+    <!--Load the controllers parameters-->
+    <rosparam file="$(find sara_description)/config/controllers.yaml" command="load" ns="$(arg ns)" />
+    <rosparam file="$(find sara_description)/config/gazebo_ros_control.yaml" command="load" ns="gazebo_ros_control" />
+
+
+    <!-- load joint controller configurations from YAML file to parameter server -->
+    <param name="robot_description" command="xacro --inorder '$(find sara_description)/urdf/sara.urdf.xacro' sim:=$(arg sim)"/>
+
+    <group  if="$(arg test)">
+        <param name="use_gui" value="$(arg gui)"/>
+        <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ns="$(arg ns)" />
+    </group>
+
+    <!-- load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" ns="$(arg ns)" args="  joint_state_controller
+                                                        sara_arm_trajectory_controller
+                                                        sara_head_pitch_controller
+                                                        sara_head_yaw_controller
+                                                        sara_gripper_action_controller"/>
+
+    <!-- publish all the frames to TF -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" ns="$(arg ns)"/>
+
+</launch>

@@ -1,0 +1,293 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <xacro:macro name="sara_arm" params="prefix parent *origin sim">
+        <xacro:if value="${sim}">
+            <xacro:include filename="$(find sara_description)/urdf/arm_v2/arm.gazebo.xacro"/>
+            <xacro:sara_arm_gazebo_v2 prefix="${prefix}"/>
+            <xacro:include filename="$(find sara_description)/urdf/arm_v2/arm.transmission.xacro" />
+        </xacro:if>
+
+
+        <joint name="${prefix}shoulder_roll_joint" type="revolute">
+            <parent link="${parent}_link"/>
+            <child link="${prefix}clavicular_link"/>
+            <dynamics damping="0.1"/>
+            <limit effort="10000.0" lower="-0.3" upper="1.5" velocity="0.57"/>
+            <xacro:insert_block name="origin"/>
+            <axis xyz="0 0 1"/>
+        </joint>
+
+        <link name="${prefix}clavicular_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/epaule1.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <material name="black">
+                    <color rgba="0.12 0.12 0.12 1"/>
+                </material>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/epaule1.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </collision>
+            <inertial>
+                <mass value="0.88506911"/>
+                <origin xyz="0.0 -0.03225261 -0.01842117" rpy="0 0 0"/>
+                <inertia ixx="0.00040678" ixy="0.0" ixz="-0.00000004"
+                         iyy="0.00039958" iyz="-0.00003453"
+                         izz="0.00059825"/>
+            </inertial>
+        </link>
+
+        <joint name="${prefix}shoulder_pitch_joint" type="revolute">
+            <parent link="${prefix}clavicular_link"/>
+            <child link="${prefix}upper_arm_upper_link"/>
+            <dynamics damping="0.1"/>
+            <limit effort="10000.0" lower="-1.9" upper="0.6" velocity="1"/>
+            <origin xyz="0 -0.09 0" rpy="-1.57079 0 0"/>
+            <axis xyz="0 0 1"/>
+        </joint>
+
+        <link name="${prefix}upper_arm_upper_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/epaule2.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <material name="black">
+                    <color rgba="0.12 0.12 0.12 1"/>
+                </material>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/epaule2.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </collision>
+            <inertial>
+                <mass value="0.78506911"/>
+                <origin xyz="-0.03225261 0 -0.01842117" rpy="0 0 0"/>
+                <inertia ixx="0.00039958" ixy="0" ixz="-0.00003453" iyy="0.00040678" iyz="0.00000004" izz="0.00059825"/>
+            </inertial>
+        </link>
+
+        <joint name="${prefix}shoulder_yaw_joint" type="revolute">
+            <parent link="${prefix}upper_arm_upper_link"/>
+            <child link="${prefix}upper_arm_lower_link"/>
+            <dynamics damping="0.1"/>
+            <limit effort="10000.0" lower="-1.5" upper="1.3" velocity="1"/>
+            <origin xyz="-0.085 0 0" rpy="1.5708 0 1.5708"/>
+            <axis xyz="0 0 1"/>
+        </joint>
+
+        <link name="${prefix}upper_arm_lower_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/bras_haut.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <material name="black">
+                    <color rgba="0.12 0.12 0.12 1"/>
+                </material>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/bras_haut.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </collision>
+            <inertial>
+                <mass value="0.65240803"/>
+                <origin xyz="-0.00168302 0.00155140 -0.13913505" rpy="0 0 0"/>
+                <inertia ixx="0.00538199" ixy="-0.00000635" ixz="0.00012863"
+                         iyy="0.00562525" iyz="-0.00012986"
+                         izz="0.00050159"/>
+            </inertial>
+        </link>
+
+        <joint name="${prefix}elbow_pitch_joint" type="revolute">
+            <parent link="${prefix}upper_arm_lower_link"/>
+            <child link="${prefix}forearm_upper_link"/>
+            <dynamics damping="0.1"/>
+            <limit effort="10000.0" lower="-0.75" upper="1.40" velocity="1"/>
+            <origin xyz="0 -0.005 -0.31" rpy="-1.5708 -1.5708 0"/>
+            <axis xyz="0 0 1"/>
+        </joint>
+
+        <link name="${prefix}forearm_upper_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/coude.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <material name="black">
+                    <color rgba="0.12 0.12 0.12 1"/>
+                </material>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/coude.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </collision>
+            <inertial>
+                <mass value="0.58300045"/>
+                <origin xyz="0.00000207 0.03922132 -0.01628605" rpy="0 0 0"/>
+                <inertia ixx="0.00036109" ixy="0.0" ixz="-0.00000002"
+                         iyy="0.00029872" iyz="0.00001701"
+                         izz="0.00055069"/>
+            </inertial>
+        </link>
+
+        <joint name="${prefix}elbow_yaw_joint" type="revolute">
+            <parent link="${prefix}forearm_upper_link"/>
+            <child link="${prefix}forearm_lower_link"/>
+            <dynamics damping="0.1"/>
+            <limit effort="10000.0" lower="-3" upper="3" velocity="1"/>
+            <origin xyz="0 0.0945 0" rpy="1.5708 -3.14159 0"/>
+            <axis xyz="0 0 1"/>
+        </joint>
+
+        <link name="${prefix}forearm_lower_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/coude.STL" scale="0.00001 0.00001 0.00001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <material name="black">
+                    <color rgba="0.12 0.12 0.12 1"/>
+                </material>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/coude.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </collision>
+            <inertial>
+                <mass value="0.48300045"/>
+                <origin xyz="0.00000207 0.03922132 -0.01628605" rpy="0 0 0"/>
+                <inertia ixx="0.00036109" ixy="0.0" ixz="-0.00000002"
+                         iyy="0.00029872" iyz="0.00001701"
+                         izz="0.00055069"/>
+            </inertial>
+        </link>
+
+        <joint name="${prefix}wrist_joint" type="fixed">
+            <parent link="${prefix}forearm_lower_link"/>
+            <child link="${prefix}wrist_upper_link"/>
+            <limit effort="10000.0" lower="-3.1416" upper="3.1416" velocity="1"/>
+            <origin xyz="0 0 0" rpy="1.5708 -1.5708 0"/>
+            <axis xyz="0 1 0"/>
+        </joint>
+
+        <link name="${prefix}wrist_upper_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/WRA-01.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="-1.5708 0 3.141592"/>
+                <material name="black">
+                    <color rgba="0.12 0.12 0.12 1"/>
+                </material>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/WRA-01.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="-1.5708 0 3.141592"/>
+            </collision>
+            <inertial>
+                <mass value="0.3956991"/>
+                <origin xyz="-0.03893593 0.00017228 -0.00000284" rpy="0 0 0"/>
+                <inertia ixx="0.00007035" ixy="-0.00000150" ixz="0.0"
+                         iyy="0.00011510" iyz="0.0"
+                         izz="0.00013235"/>
+            </inertial>
+        </link>
+
+        <joint name="${prefix}wrist_pitch_joint" type="revolute">
+            <parent link="${prefix}wrist_upper_link"/>
+            <child link="${prefix}wrist_lower_link"/>
+            <dynamics damping="0.1"/>
+            <limit effort="10000.0" lower="-1.5" upper="1.5" velocity="1"/>
+            <origin xyz="-0.10795 0 0" rpy="0 1.5708 1.5708"/>
+            <axis xyz="0 0 1"/>
+        </joint>
+
+        <link name="${prefix}wrist_lower_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/WRA-02.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0.0 0 0.0" rpy=" 0 1.5708 0"/>
+                <material name="black">
+                    <color rgba="0.12 0.12 0.12 1"/>
+                </material>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/WRA-02.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy=" 0 1.5708 0"/>
+            </collision>
+            <inertial>
+                <mass value="0.28747684"/>
+                <origin xyz="0.00001243 0.05721169 0.0" rpy=" 0 0 0"/>
+                <inertia ixx="0.00015391" ixy="-0.00000060" ixz="0.0"
+                         iyy="0.00006260" iyz="0.0"
+                         izz="0.00015218"/>
+            </inertial>
+        </link>
+
+        <joint name="${prefix}wrist_roll_joint" type="revolute">
+            <parent link="${prefix}wrist_lower_link"/>
+            <child link="${prefix}last_link"/>
+            <dynamics damping="0.1"/>
+            <limit effort="10000.0" lower="-1.45" upper="1.45" velocity="1"/>
+            <origin xyz="0 0.0635 0" rpy="1.5708 0 0"/>
+            <axis xyz="1 0 0"/>
+        </joint>
+
+        <link name="${prefix}last_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/WRA-03.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 1.5708 -1.5708"/>
+                <material name="black">
+                    <color rgba="0.12 0.12 0.12 1"/>
+                </material>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://sara_description/meshes/WRA-03.STL" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 1.5708 -1.5708"/>
+            </collision>
+            <inertial>
+                <mass value="1.82796"/>
+                <origin xyz="0.0 0.0 -0.01570460" rpy="0 0 0"/>
+                <inertia ixx="0.00000889" ixy="0.0" ixz="0.0"
+                         iyy="0.00002569" iyz="0.0"
+                         izz="0.00002493"/>
+            </inertial>
+
+        </link>
+
+        <joint name="${prefix}socket_joint" type="fixed">
+            <parent link="${prefix}last_link"/>
+            <child link="${prefix}socket_link"/>
+            <origin xyz="0 0 -0.055" rpy="${PI/2} ${PI/2} 0"/>
+        </joint>
+
+        <link name="${prefix}socket_link"/>
+
+
+
+    </xacro:macro>
+</robot>
